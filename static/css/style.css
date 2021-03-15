@@ -9,3 +9,7 @@ nav {
     font-size: 15px;
     background: url(/workspace/Milestone-Project-3/assets/images/chocolate-drips-long.jpg);
 }
+
+.flashes h4 {
+    line-height: 2;
+}

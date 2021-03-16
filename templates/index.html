@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="center-align">Welcome!</h3>
+    <!-- logo image -->
+    <div id="logo-image" class="row">
+        <div class="col s12 center-align">
+            <img class="responsive-img" src="{{ url_for('static', filename='images/logo-idea.png') }}">
+        </div>
+    </div>
+    
+{% endblock %}

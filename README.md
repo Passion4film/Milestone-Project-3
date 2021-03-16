@@ -1,4 +1,4 @@
-
+<h1 align="center"><img src="static/images/logo-idea.png" style="margin: 0;" alt="image of site logo"></h1>
 
 [View the live website here.](https://bitter-sweet-milestone-3.herokuapp.com/)
 

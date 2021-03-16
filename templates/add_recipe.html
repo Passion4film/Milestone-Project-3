@@ -4,7 +4,8 @@
     <h3 class="deep-purple-text text-darken-3 center-align">Add a Recipe to the Collection</h3>
 
     <div class="row card-panel brown darken-1 white-text">
-        <form class="col s12" method="POST" action="">
+        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+            <!-- the recipe category selection -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-birthday-cake prefix deep-purple-text text-darken-3 text-shadow"></i>
@@ -17,6 +18,7 @@
                     <label for="category_name">Recipe Category</label>
                 </div>
             </div>
+            <!-- the name of the recipe -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-book prefix deep-purple-text text-darken-3 text-shadow"></i>
@@ -25,6 +27,7 @@
                     <label for="recipe_name">Recipe Name</label>
                 </div>
             </div>
+            <!-- the ingredients and measurements needed for the recipe -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-balance-scale prefix deep-purple-text text-darken-3 text-shadow"></i>
@@ -33,6 +36,7 @@
                     <label for="ingredients_measurements">Ingredients and Measurements</label>
                 </div>
             </div>
+            <!-- preparation steps for the recipe -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-clipboard-list prefix deep-purple-text text-darken-3 text-shadow"></i>
@@ -41,6 +45,7 @@
                     <label for="preparation_steps">Preparation Steps</label>
                 </div>
             </div>
+            <!-- time recipe takes -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-stopwatch prefix deep-purple-text text-darken-3 text-shadow"></i>
@@ -49,6 +54,7 @@
                     <label for="time">Time</label>
                 </div>
             </div>
+            <!-- vegan check-box -->
             <div class="row">
                 <div class="input-field col s12">
                     <div class="switch">
@@ -59,6 +65,14 @@
                             Suitable for Vegans
                         </label>
                     </div>
+                </div>
+            </div>
+            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large deep-purple darken-3 text-shadow">
+                        Add Recipe <i class="fas fa-plus-square right"></i>
+                    </button>
                 </div>
             </div>
         </form>

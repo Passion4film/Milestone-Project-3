@@ -1,39 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <h3 class="deep-purple-text text-darken-3 center-align">All Recipes</h3>
+
     <ul class="collapsible">
         {% for recipe in recipes %}
-            <li>
-                <div class="collapsible-header white-text deep-purple darken-2 text-shadow">
-                    <i class="fas fa-book"></i>
-                    <strong>{{ recipe.recipe_name }}</strong>
-                    {% if recipe.is_vegan == "on" %}
-                        <i class="fas fa-carrot tooltipped"
-                            data-position="right" data-tooltip="Suitable for Vegans"></i>
-                    {% endif %}
-                </div>
-                <div class="collapsible-body">
-                    <i class="fas fa-birthday-cake"></i> <strong>Category</strong>
-                    <p>
-                        {{ recipe.category_name }}
-                    </p>
-                    <br>
-                    <i class="fas fa-balance-scale"></i> <strong>Ingredients and Measurements</strong>
-                    <p>
-                        {{ recipe.ingredients_measurements }}
-                    </p>
-                    <br>
-                    <i class="fas fa-clipboard-list"></i> <strong>Preparation Steps</strong>
-                    <p>
-                        {{ recipe.preparation_steps }}
-                    </p>
-                    <br>
-                    <i class="fas fa-stopwatch"></i> <strong>Time</strong>
-                    <p>
-                        {{ recipe.time}}
-                    </p>
-                </div>
-            </li>
+        <li>
+            <div class="collapsible-header white-text deep-purple darken-2 text-shadow">
+                <i class="fas fa-book"></i>
+                <strong>{{ recipe.recipe_name }}</strong>
+                {% if recipe.is_vegan == "on" %}
+                <i class="fas fa-carrot tooltipped" data-position="right" data-tooltip="Suitable for Vegans"></i>
+                {% endif %}
+            </div>
+            <div class="collapsible-body">
+                <i class="fas fa-birthday-cake"></i> <strong>Category</strong>
+                <p>
+                    {{ recipe.category_name }}
+                </p>
+                <br>
+                <i class="fas fa-balance-scale"></i> <strong>Ingredients and Measurements</strong>
+                <p>
+                    {{ recipe.ingredients_measurements }}
+                </p>
+                <br>
+                <i class="fas fa-clipboard-list"></i> <strong>Preparation Steps</strong>
+                <p>
+                    {{ recipe.preparation_steps }}
+                </p>
+                <br>
+                <i class="fas fa-stopwatch"></i> <strong>Time</strong>
+                <p>
+                    {{ recipe.time}}
+                </p>
+                <p><em>by: {{ recipe.created_by }}</em></p>
+            </div>
+        </li>
         {% endfor %}
     </ul>
 

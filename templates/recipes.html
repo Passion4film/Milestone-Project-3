@@ -7,11 +7,17 @@
         {% for recipe in recipes %}
         <li>
             <div class="collapsible-header white-text deep-purple darken-2 text-shadow">
-                <i class="fas fa-book"></i>
-                <strong>{{ recipe.recipe_name }}</strong>
-                {% if recipe.is_vegan == "on" %}
-                <i class="fas fa-carrot tooltipped" data-position="right" data-tooltip="Suitable for Vegans"></i>
-                {% endif %}
+                <div class="col s3">
+                    <i class="fas fa-book"></i>
+                    <a href="" class="btn-small brown lighten-3">Edit</a>
+                    <a href="" class="btn-small brown">Delete</a>
+                </div>
+                <div class="col s9">
+                    <strong>{{ recipe.recipe_name }}</strong>
+                    {% if recipe.is_vegan == "on" %}
+                        <i class="fas fa-carrot tooltipped" data-position="right" data-tooltip="Suitable for Vegans"></i>
+                    {% endif %}
+                </div>
             </div>
             <div class="collapsible-body">
                 <i class="fas fa-birthday-cake"></i> <strong>Category</strong>

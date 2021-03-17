@@ -11,7 +11,24 @@
                     <i class="fas fa-book"></i>
                     {% if session.user|lower == recipe.created_by|lower %}
                         <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small brown lighten-3">Edit</a>
-                        <a href="" class="btn-small brown">Delete</a>
+                        <!--Delete Recipe-->
+                        <button data-target="{{ recipe._id }}" class="btn-small brown darken-1 modal-trigger">Delete Recipe</button>
+                            <!--Delete Recipe Modal-->
+                            <div id="{{ recipe._id }}" class="modal card-panel brown darken-1 white-text">
+                                <div class="modal-content">
+                                    <h4>Are you sure you want to delete this recipe?</h4>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" data-target="{{ recipe._id }}" 
+                                        class="modal-close btn-small brown darken-1">
+                                        Yes - Delete
+                                    </a>
+                                    <a href="{{ url_for('get_recipes') }}" 
+                                        class="modal-close btn-small blue-grey-text text-lighten-5 blue-grey darken-3">
+                                        Cancel
+                                    </a>
+                                </div>
+                            </div>
                     {% endif %}
                 </div>
                 <div class="col s9">

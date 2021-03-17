@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="deep-purple-text text-darken-3 center-align">Edit your Recipe</h3>
+
+    <div class="row card-panel brown darken-1 white-text">
+        <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+            <!-- the recipe category selection -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-birthday-cake prefix deep-purple-text text-darken-3 text-shadow"></i>
+                    <select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose Category</option>
+                        {% for category in categories %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="category_name">Recipe Category</label>
+                </div>
+            </div>
+            <!-- the name of the recipe -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-book prefix deep-purple-text text-darken-3 text-shadow"></i>
+                    <input id="recipe_name" name="recipe_name" minlength="5"
+                        maxlength="50" type="text" class="validate" required>
+                    <label for="recipe_name">Recipe Name</label>
+                </div>
+            </div>
+            <!-- the ingredients and measurements needed for the recipe -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-balance-scale prefix deep-purple-text text-darken-3 text-shadow"></i>
+                    <textarea id="ingredients_measurements" name="ingredients_measurements" 
+                        minlength="5" maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <label for="ingredients_measurements">Ingredients and Measurements</label>
+                </div>
+            </div>
+            <!-- preparation steps for the recipe -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-clipboard-list prefix deep-purple-text text-darken-3 text-shadow"></i>
+                    <textarea id="preparation_steps" name="preparation_steps" 
+                        minlength="5" maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <label for="preparation_steps">Preparation Steps</label>
+                </div>
+            </div>
+            <!-- time recipe takes -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-stopwatch prefix deep-purple-text text-darken-3 text-shadow"></i>
+                    <textarea id="time" name="time" 
+                        minlength="5" maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <label for="time">Time</label>
+                </div>
+            </div>
+            <!-- vegan check-box -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <div class="switch">
+                        <i class="fas fa-carrot tooltipped prefix deep-purple-text text-darken-3 text-shadow"></i>
+                        <label for="is_vegan">
+                            <input type="checkbox" id="is_vegan" name="is_vegan">
+                            <span class="lever"></span>
+                            Suitable for Vegans
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large deep-purple darken-3 text-shadow">
+                        Edit Recipe <i class="fas fa-edit right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

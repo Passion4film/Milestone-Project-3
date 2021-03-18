@@ -6,12 +6,21 @@
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
             <div class="card-panel">
+                <!-- email -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-user-edit prefix brown-text text-darken-3"></i>
+                        <input id="email" name="email" type="text" minlength="5"
+                            maxlength="30" class="validate" required>
+                        <label for="email">Email</label>
+                    </div>
+                </div>
                 <!-- username -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-user-plus prefix brown-text text-darken-3"></i>
                         <input id="username" name="username" type="text" minlength="5"
-                            maxlength="15" pattern="^[a-zA-z09]{5,15}$" class="validate" required>
+                            maxlength="15" pattern="^[a-zA-z0-9]{5,15}$" class="validate" required>
                         <label for="username">Username</label>
                     </div>
                 </div>
@@ -20,7 +29,7 @@
                     <div class="input-field col s12">
                         <i class="fas fa-user-lock prefix brown-text text-darken-3"></i>
                         <input id="password" name="password" type="password" minlength="5"
-                            maxlength="15" pattern="^[a-zA-z09]{5,15}$" class="validate" required>
+                            maxlength="15" pattern="^[a-zA-z0-9]{5,15}$" class="validate" required>
                         <label for="password">Password</label>
                     </div>
                 </div>
@@ -34,10 +43,11 @@
         </form>
     </div>
 
+    <!-- if already registered - redirect to login page -->
     <div class="row">
         <div class="col s12">
             <p class="center-align">
-                Already Registered? <a href="{{ url_for('login') }}" class="brown-text darken-4">Log In</a>
+                Already have an account? <a href="{{ url_for('login') }}" class="brown-text darken-4">Log In</a>
             </p>
         </div>
     </div>

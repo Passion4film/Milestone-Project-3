@@ -3,66 +3,90 @@
 
     <h3 class="deep-purple-text text-darken-3 center-align">All Recipes</h3>
 
-    <ul class="collapsible">
-        {% for recipe in recipes %}
-        <li>
-            <div class="collapsible-header white-text deep-purple darken-2 text-shadow">
-                <div class="col s3">
-                    <i class="fas fa-book"></i>
-                    {% if session.user|lower == recipe.created_by|lower %}
-                        <!-- edit recipe -->
-                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small brown lighten-3">Edit</a>
-                        <!-- delete recipe -->
-                        <button data-target="{{ recipe._id }}" class="btn-small brown darken-1 modal-trigger">Delete Recipe</button>
-                            <!-- delete recipe modal -->
-                            <div id="{{ recipe._id }}" class="modal card-panel brown darken-1 white-text">
-                                <div class="modal-content">
-                                    <h4>Are you sure you want to delete this recipe?</h4>
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" data-target="{{ recipe._id }}" 
-                                        class="modal-close btn-small brown darken-1">
-                                        Yes - Delete
-                                    </a>
-                                    <a href="{{ url_for('get_recipes') }}" 
-                                        class="modal-close btn-small blue-grey-text text-lighten-5 blue-grey darken-3">
-                                        Cancel
-                                    </a>
-                                </div>
-                            </div>
-                    {% endif %}
+    <div class="row card-panel white-text deep-purple darken-2">
+        <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12 m8">
+                    <i class="fas fa-search prefix text-shadow"></i>
+                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                    <label for="query">Search Recipes</label>
                 </div>
-                <div class="col s9">
-                    <strong>{{ recipe.recipe_name }}</strong>
-                    {% if recipe.is_vegan == "on" %}
-                        <i class="fas fa-carrot tooltipped" data-position="right" data-tooltip="Suitable for Vegans"></i>
-                    {% endif %}
+                <div class="col s12 m4">
+                    <a href="{{ url_for('get_recipes') }}" class="brown darken-1 btn text-shadow">
+                        Reset
+                    </a>
+                    <button type="submit" class="brown lighten-3 btn text-shadow">
+                        <i class="fas fa-search left"></i> Search
+                    </button>
                 </div>
             </div>
-            <div class="collapsible-body">
-                <i class="fas fa-birthday-cake"></i> <strong>Category</strong>
-                <p>
-                    {{ recipe.category_name }}
-                </p>
-                <br>
-                <i class="fas fa-balance-scale"></i> <strong>Ingredients and Measurements</strong>
-                <p>
-                    {{ recipe.ingredients_measurements }}
-                </p>
-                <br>
-                <i class="fas fa-clipboard-list"></i> <strong>Preparation Steps</strong>
-                <p>
-                    {{ recipe.preparation_steps }}
-                </p>
-                <br>
-                <i class="fas fa-stopwatch"></i> <strong>Time</strong>
-                <p>
-                    {{ recipe.time}}
-                </p>
-                <p><em>by: {{ recipe.created_by }}</em></p>
-            </div>
-        </li>
-        {% endfor %}
-    </ul>
+        </form>
+    </div>
+
+    {% if recipes|length > 0 %}
+        <ul class="collapsible">
+            {% for recipe in recipes %}
+            <li>
+                <div class="collapsible-header white-text deep-purple darken-2 text-shadow">
+                    <div class="col s3">
+                        <i class="fas fa-book"></i>
+                        {% if session.user|lower == recipe.created_by|lower %}
+                            <!-- edit recipe -->
+                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small brown lighten-3">Edit</a>
+                            <!-- delete recipe -->
+                            <button data-target="{{ recipe._id }}" class="btn-small brown darken-1 modal-trigger">Delete Recipe</button>
+                                <!-- delete recipe modal -->
+                                <div id="{{ recipe._id }}" class="modal card-panel brown darken-1 white-text">
+                                    <div class="modal-content">
+                                        <h4>Are you sure you want to delete this recipe?</h4>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" data-target="{{ recipe._id }}" 
+                                            class="modal-close btn-small brown darken-1">
+                                            Yes - Delete
+                                        </a>
+                                        <a href="{{ url_for('get_recipes') }}" 
+                                            class="modal-close btn-small blue-grey-text text-lighten-5 blue-grey darken-3">
+                                            Cancel
+                                        </a>
+                                    </div>
+                                </div>
+                        {% endif %}
+                    </div>
+                    <div class="col s9">
+                        <strong>{{ recipe.recipe_name }}</strong>
+                        {% if recipe.is_vegan == "on" %}
+                            <i class="fas fa-carrot tooltipped" data-position="right" data-tooltip="Suitable for Vegans"></i>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="collapsible-body">
+                    <i class="fas fa-birthday-cake"></i> <strong>Category</strong>
+                    <p>
+                        {{ recipe.category_name }}
+                    </p>
+                    <br>
+                    <i class="fas fa-balance-scale"></i> <strong>Ingredients and Measurements</strong>
+                    <p>
+                        {{ recipe.ingredients_measurements }}
+                    </p>
+                    <br>
+                    <i class="fas fa-clipboard-list"></i> <strong>Preparation Steps</strong>
+                    <p>
+                        {{ recipe.preparation_steps }}
+                    </p>
+                    <br>
+                    <i class="fas fa-stopwatch"></i> <strong>Time</strong>
+                    <p>
+                        {{ recipe.time}}
+                    </p>
+                    <p><em>by: {{ recipe.created_by }}</em></p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3 class="red-text text-darken-3 center-align">No Results Found</h3>
+    {% endif %}
 
 {% endblock %}

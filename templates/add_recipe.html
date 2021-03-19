@@ -70,6 +70,11 @@
             <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">
+                    <!-- cancel changes button -->
+                    <a href="{{ url_for('get_recipes') }}" class="btn-large red text-shadow">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
+                    <!-- confirm add button -->
                     <button type="submit" class="btn-large deep-purple darken-3 text-shadow">
                         Add Recipe <i class="fas fa-plus-square right"></i>
                     </button>

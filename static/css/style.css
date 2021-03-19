@@ -13,8 +13,18 @@ nav {
     font-size: 20px;
 }
 
+#hero-image {
+  height: 500px;
+  width: 100%;
+  border-radius: 5px;
+}
+
 .flashes h4 {
     line-height: 2;
+    font-family: "Satisfy", sans-serif;
+}
+
+.modal-content {
     font-family: "Satisfy", sans-serif;
 }
 

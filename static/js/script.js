@@ -7,6 +7,7 @@ $(document).ready(function() {
     $('.tooltipped').tooltip();
     $('select').formSelect();
     $('.modal').modal();
+    $('.carousel').carousel();
 
     validateMaterializeSelect();
     function validateMaterializeSelect() {

@@ -98,8 +98,7 @@ def profile(username):
         {"username": session["user"]})["username"].capitalize()
 
     if session["user"]:
-        return render_template("profile.html", username=username,
-            title="Profile")
+        return render_template("profile.html", username=username, title="Profile")
 
     return redirect(url_for("login"))
 

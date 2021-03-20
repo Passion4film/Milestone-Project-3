@@ -1,22 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
-#logo-image {
-    border-radius: 50%;
-}
-
 .text-shadow {
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
 }
 
-nav {
+nav, .sidenav {
     font-family: "Satisfy", sans-serif;
     font-size: 20px;
-}
-
-#hero-image {
-  height: 500px;
-  width: 100%;
-  border-radius: 5px;
 }
 
 .flashes h4 {
@@ -24,11 +14,7 @@ nav {
     font-family: "Satisfy", sans-serif;
 }
 
-.modal-content {
-    font-family: "Satisfy", sans-serif;
-}
-
-h3, label {
+h2, h3, h4, label, .modal-content, footer {
     font-family: "Satisfy", sans-serif;
 }
 

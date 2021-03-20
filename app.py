@@ -1,9 +1,11 @@
 import os
+import cloudinary as cloudinary
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from cloudinary.uploader import upload, destroy
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -11,6 +13,14 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
+# cloudinary config
+cloudinary.config(
+    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    api_key=os.environ.get('CLOUDINARY_API_KEY'),
+    api_secret=os.environ.get('CLOUDINARY_API_SECRET')
+)
+
+# mongoDB config
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
@@ -43,11 +53,11 @@ def register():
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-
+        # if username DOES already exists in db
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
-
+        # if username DOES NOT already exist in db then insert details
         register = {
             "email": request.form.get("email").lower(),
             "username": request.form.get("username").lower(),
@@ -59,6 +69,7 @@ def register():
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
         return redirect(url_for("profile", username=session["user"]))
+
     return render_template("register.html", title="Register")
 
 

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align brown-text text-darken-3">Register</h3>
+    <h3 class="center-align brown-text text-darken-3">{{ title }}</h3>
 
     <!-- Register form -->
     <div class="row">
@@ -34,6 +34,13 @@
                                 maxlength="15" pattern="^[a-zA-z0-9]{5,15}$" class="validate" required>
                             <label for="password">Password</label>
                             <span class="helper-text">5 - 15 characters. Upper/lower A-Z and 0-9</span>
+                        </div>
+                    </div>
+                <!-- profile picture --> 
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="file" id="profile_img" name="profile_img" required>
+                            <label for="profile_img"></label>
                         </div>
                     </div>
                 <!-- register -->

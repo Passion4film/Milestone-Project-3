@@ -7,17 +7,16 @@
                 <h3 class="center-align deep-purple-text text-darken-3">
                     {{ username }}'s Profile
                 </h3>
+                <img src="{{ profile_img }}" alt="">
             </div>
         </div>
     </div>
 
-    <div class="card">
-        <img src="https://freeicons.io/asset/images/user-default-lg.png" id="img-preview" />
-        <label class="file-upload-container" for="file-upload">
-            <br>
-            <input id="file-upload" type="file" style="display:none;">
-            Select an Image
-        </label>
-    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="file" id="profile_img" name="profile_img" required>
+            <input type="submit" value="Submit">
+        </div>
+    </div>                   
 
 {% endblock %}

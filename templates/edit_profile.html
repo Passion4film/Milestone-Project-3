@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="deep-purple-text text-darken-3 center-align">{{ title }}</h3>
+
+    <div class="row">
+        <div class="col s12">
+            <form method="POST" action="{{ url_for('update_profile',user_id=user_data._id) }}"
+                enctype="multipart/form-data">
+                <div class="row">
+                <!-- Profile Image -->
+                    <div class="col s12 center">
+                        <img class=" profile-img-lg" src="{{ user_data.profile_img }}" alt="user profile image">
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col s12">
+                        <div class="row">
+                        <!-- File Browser -->
+                            <div class="col s12 m6 ">
+                                <div class="file-field input-field">
+                                    <div class="row">
+                                    <!-- Icon -->
+                                        <div class="col s1 xl1">
+                                            <div class="btn-floating btn waves-effect waves-light blue folder-btn">
+                                                <i class="material-icons">folder</i>
+                                                <input type="file" name="file" accept="image/png, image/jpeg"></div>
+                                            </div>
+                                            <!-- File Path -->
+                                            <div class="col s8 offset-s1 xl10 ">
+                                                <div class="file-path-wrapper">
+                                                    <input id="profile_pic" class="file-path validate" type="text">
+                                                    <label for="profile_pic">Upload a profile picture</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Email Field -->
+                                <div class="col s12 m6 ">
+                                    <div class="input-field ">
+                                        <i class="material-icons prefix">alternate_email</i>
+                                        <input id="icon_email" type="email" class="validate" value="{{ user_data.email }}"
+                                            name="email">
+                                        <label for="icon_email">Email</label>
+                                        <span class="helper-text" data-error="please enter a valid email address"
+                                            data-success="correct"></span>
+                                    </div>
+                                </div>
+                                <!-- About Me Field -->
+                                <div class="col s12">
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">mode_edit</i>
+                                        <textarea id="about-text" class="materialize-textarea t-counter ar-text" name="bio"
+                                            data-length="250" maxlength="250" autofocus>{{ user_data.bio }}</textarea>
+                                        <label for="about-text" class="edit-textarea-label">About me</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Save Button -->
+                        <div class="col s12 m5 l6">
+                            <button class="btn-floating btn waves-effect waves-light green left" type="submit" name="action"><i
+                                    class="material-icons">save</i></button>
+                        </div>
+
+{% endblock %}

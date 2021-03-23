@@ -15,7 +15,7 @@ nav, .sidenav {
     font-family: "Satisfy", sans-serif;
 }
 
-h2, h3, h4, label, .modal-content, footer {
+h2, h3, h4, .modal-content, footer {
     font-family: "Satisfy", sans-serif;
 }
 
@@ -40,6 +40,10 @@ h2, h3, h4, label, .modal-content, footer {
     color: #ffffff;
 }
 
-button, span {
+label {
     font-family: "Baloo Tammudu 2", sans-serif;
+}
+
+.welcome-image {
+    border-radius: 25%;
 }

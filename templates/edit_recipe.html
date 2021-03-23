@@ -81,11 +81,21 @@
                     </div>
                 </div>
             </div>
+            <!-- image url -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="far fa-image prefix deep-purple-text text-darken-3 text-shadow"></i>
+                    <label for="url">If you want to upload a different image URL of the recipe, we recommend using a free hosting site - such as 
+                        <a href="https://imgbb.com/" target="_blank">IMBB.com</a></label>
+                    <input type="url" id="url" name="url" pattern="https://.*" 
+                        size="30">
+                </div>
+            </div>
             <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">
                     <!-- cancel changes button -->
-                    <a href="{{ url_for('get_recipes') }}" class="btn-large red text-shadow">
+                    <a href="{{ url_for('get_recipes') }}" class="btn-large deep-purple lighten-2 text-shadow">
                         Cancel <i class="fas fa-times-circle right"></i>
                     </a>
                     <!-- confirm edit button -->

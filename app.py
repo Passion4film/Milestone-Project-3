@@ -59,10 +59,8 @@ def register():
             return redirect(url_for("register"))
         # if username DOES NOT already exist in db then insert details
         register = {
-            "email": request.form.get("email").lower(),
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password")),
-            "profile_img": request.files['profile_img']
+            "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(register)
 
@@ -115,33 +113,6 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-@app.route('/update-profile/<user_id>', methods=['POST'])
-def update_profile(user_id):
-    file_to_upload = request.files.get('file')
-
-    if file_to_upload:
-        # Current user record
-        current_user = mongo.db.users.find_one({'_id': ObjectId(user_id)})
-
-        if current_user['profile_image_id'] != 'xmt2q3ttok9cwjlux8j2':
-            # Remove current profile image
-            destroy(current_user['profile_image_id'], invalidate=True)
-
-        # Upload new image to cloudinary
-        upload_result = upload(file_to_upload)
-        # Update users profile image in DB
-        mongo.db.users.update_one({'_id': ObjectId(user_id)},
-                            {"$set": {'profile_image': upload_result['secure_url'],
-                                      'profile_image_id': upload_result['public_id']}},
-                            upsert=True)
-
-    #  Update users profile data
-    mongo.db.users.update_one({'_id': ObjectId(user_id)},
-                        {"$set": {'email': request.form.get('email')}}, upsert=True)
-
-    return render_template('edit_profile.html')
-
-
 @app.route("/logout")
 def logout():
     # remove user from session cookies
@@ -186,6 +157,7 @@ def edit_recipe(recipe_id):
             "preparation_steps": request.form.get("preparation_steps"),
             "time": request.form.get("time"),
             "is_vegan": is_vegan,
+            "img_url": request.form.get("img_url"),
             "created_by": session["user"]
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)

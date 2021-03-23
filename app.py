@@ -1,5 +1,5 @@
 import os
-import cloudinary as cloudinary
+import cloudinary as Cloud
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -14,11 +14,11 @@ if os.path.exists("env.py"):
 app = Flask(__name__)
 
 # cloudinary config
-cloudinary.config(
-    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
-    api_key=os.environ.get('CLOUDINARY_API_KEY'),
-    api_secret=os.environ.get('CLOUDINARY_API_SECRET')
-)
+Cloud.config.update = ({
+    'cloud_name': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'api_key': os.environ.get('CLOUDINARY_API_KEY'),
+    'api_secret': os.environ.get('CLOUDINARY_API_SECRET')
+})
 
 # mongoDB config
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -162,6 +162,7 @@ def add_recipe():
             "preparation_steps": request.form.get("preparation_steps"),
             "time": request.form.get("time"),
             "is_vegan": is_vegan,
+            "img_url": request.form.get("img_url"),
             "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)

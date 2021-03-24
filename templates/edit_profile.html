@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="deep-purple-text text-darken-3 center-align">{{ title }}</h3>
+
+    <div class="row card-panel brown darken-1 white-text">
+        <form class="col s12" method="POST" action="{{ url_for('edit_profile') }}">
+            <!-- image url -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="far fa-image prefix deep-purple-text text-darken-3 text-shadow"></i>
+                    <label for="profile_img_url">Please upload an image URL of the recipe, we recommend using a free hosting site - such as <a href="https://imgbb.com/" target="_blank">IMBB.com</a></label>
+                    <input type="url" id="profile_img_url" name="profile_img_url" pattern="https://.*" 
+                        size="30" required>
+                </div>
+            </div>
+            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <!-- cancel changes button -->
+                    <a href="{{ url_for('get_recipes') }}" class="btn-large deep-purple lighten-2 text-shadow">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
+                    <!-- confirm add button -->
+                    <button type="submit" class="btn-large deep-purple darken-3 text-shadow">
+                        Add Image <i class="fas fa-plus-square right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

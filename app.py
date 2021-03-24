@@ -113,6 +113,19 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+@app.route("/edit_profile/<user_id>", methods=["GET", "POST"])
+def edit_profile(user_id):
+    if request.method == "POST":
+        user = {
+            "profile_img_url": request.form.get("profile_img_url")
+        }
+        mongo.db.categories.update({"_id": ObjectId(user_id)}, user)
+        flash("Profile Picture Updated")
+        return redirect(url_for("profile"))
+
+    return render_template("edit_profile.html", user=user, title="Edit Profile")
+
+
 @app.route("/logout")
 def logout():
     # remove user from session cookies

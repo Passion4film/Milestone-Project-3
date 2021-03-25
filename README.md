@@ -4,34 +4,46 @@
 
 # BitterSweet
 
+This website is a chocolate themed recipe sharing site. Anybody can create an account and share their chocolate inspired recipes. 
+
+Any user can view all recipes on the site, however only a registered user can add/edit/delete their own recipes. To compliment these chocolate recipes
+BitterSweet©, which is a new chocolate company, would like to promote their products to be used to create these chocolate dishes. 
 
 ## The important things to consider were:
 
-1. 
-2. 
-3. 
-4. 
-5. 
+1. Working with MongoDB as the non-relational database to store the recipes and user information.
+2. Using Flask as a framework.
+3. The C.R.U.D functionality - the users must be able to Create, Read, Update and Delete their own recipes - but not anyone else's for security.
+4. A search function to locate recipes by name or ingredients.
+5. The date displayed must be user friendly and visually appealing.
 
 ## User stories
 
 - #### Site user goals
-    1. As a site user, I want .
-    2. As a site user, I want .
-    3. As a site user, I want .
+    1. As a site user, I want to be able to register for the site and navigate it easily, then to be able to log in and out when I wish.
+    2. As a site user, I want to be able to view the recipes already on the site, but also to add and display my own.
+    3. As a site user, I want to be able to edit and/or delete my recipes when I want to.
 
 - #### Site owner goals
-    1. As a site owner, I want .
-    2. As a site owner, I want .
-    3. As a site owner, I want .
+    1. As a site owner, I want to promote the company BitterSweet© and to suggest the users try these new chocolate products in the recipes.
+    2. As a site owner, I want the users to be able to create an acocunt and navigate the site easily, as well as create/edit/delete their recipes as much as they choose to.
+    3. As a site owner, I want the users to be able to search through the chocolate recipes on the site for keywords or ingredients.
 
 -   ### Design
     -   #### Colour Scheme
-        -   The main colours used are shades of brown, purple and white, as these complement each other nicely and are suggestive of the classic colours of Cadbury's, however as this is a site for the purpose of learning no copyright infringement is intended. 
+        -   The main colours used are shades of brown, purple and white, as these complement each other nicely and are suggestive of the classic colours of Cadbury's, however 
+        as this is a site for the purpose of learning no copyright infringement is intended. 
     -   #### Typography
-        -   The --- font is used throughout the whole website with Sans Serif as the fallback font in case for any reason the font isn't being imported into the site correctly. --- is easy to read, attractive and appropriate to the aesthetic of the site. The font colour throughout is dependent on the background and the tupe of content to make it stand-out and for ease of reading against the background.
+        -   The Satisfy font is used for the navbar and page titles, as it resembles the font used in the logo. Baloo Tammudu 2 is also used for the paragraphs with information, 
+        as this makes them easier to read. Sans Serif is the fallback font in case for any reason the font isn't being imported into the site correctly. These fonts are attractive 
+        and appropriate to the aesthetic of the site. The font colour throughout is dependent on the background and the tupe of content to make it stand-out and for ease of reading 
+        against the background.
     -   #### Imagery
         -   I created the site logo using Adobe Photoshop and a stock photo located online that I edited to suit my purpose. 
+        -   I created the vegan chocolate wrapper design and the other chocolate wrapper design on the index page using Adobe Photoshop and stock photos located online. 
+        This site is for educational purposes only and no copyright infringement is intended - just an example of product placement for my created chocolate company.
+        -   The imagery used for the recipes is dependent on the content uploaded by the user. I was unable to create a system where the user uploads their own photo directly to the site,
+        however, they can upload to a free histing platform that I have linked to in my new recipe form, they just need to paste the image url to the site and it will display with the recipe details.
 
 ## Wireframes page designs:
 
@@ -45,7 +57,7 @@
 
 ### Languages Used
 
--   In this project I used [HTML5](https://en.wikipedia.org/wiki/HTML5), [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) and [JavaScript](https://en.wikipedia.org/wiki/JavaScript). 
+-   In this project I used [HTML5](https://en.wikipedia.org/wiki/HTML5), [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), [JQuery](https://jquery.com/) and [Python](https://en.wikipedia.org/wiki/Python_(programming_language)). 
 
 ### Frameworks, Libraries & Programs Used
 
@@ -55,12 +67,10 @@
 -   [Git:](https://git-scm.com/) Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 -   [Responsinator:](http://www.responsinator.com/) Responsinator was used to check the site was responsive across all devices.
 -   [Balsamiq:](https://balsamiq.com/) Balsamiq was used to create the wireframes during the design process.
--   [Autoprefixer CSS online](https://autoprefixer.github.io/) Autoprefixer was used to get the correct web extensions like -webkit- added to my CSS so that it worked on IOs systems.
 -   [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 -   Chrome, Microsoft Edge & Firefox internet browsers.
--   Adobe Photoshop, for the logo.
+-   Adobe Photoshop.
 -   I also made use of the [Materialise framework library](https://materializecss.com/getting-started.html).
-
 
 ## Testing
 

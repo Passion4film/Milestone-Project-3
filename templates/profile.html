@@ -2,20 +2,25 @@
 {% block content %}
 
     <div class="row">
-        <div class="col s12">
+        <div class="col s12 center-align">
             <div class="card-panel brown darken-4 text-shadow z-depth-1">
                 <div class="row valign-wrapper">
                     <div class="col s12 center-align">
-                        <img class="responsive-img" src="{{ profile_img }}" alt="Profile Picture">
                         <h4 class="white-text center-align">{{ username }}'s Profile</h4>
-
-                            <!-- edit profile -->
-                        <a href="{{ url_for('edit_profile') }}" class="btn-small brown lighten-3">
-                            Edit
-                        </a>
+                        <hr>
+                        <br>
+                        <img class="circle responsive-img center-align" src="{{ profile_img }}" alt="Profile Picture">
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <!-- edit profile -->
+    <div class="col s12 center-align">
+        <div class="card-panel brown darken-4 text-shadow z-depth-1">
+            <a href="{{ url_for('edit_profile') }}" class="btn-large brown lighten-3">
+            Edit
+            </a>
         </div>
     </div>
     

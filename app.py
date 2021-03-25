@@ -60,7 +60,8 @@ def register():
         # if username DOES NOT already exist in db then insert details
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "profile_img_url": request.form.get("profile_img_url")
         }
         mongo.db.users.insert_one(register)
 
@@ -106,24 +107,27 @@ def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"].capitalize()
+    profile_img = mongo.db.users.find_one(
+        {"username": session["user"]})["profile_img_url"]
 
     if session["user"]:
-        return render_template("profile.html", username=username, title="Profile")
+        return render_template("profile.html", username=username, profile_img=profile_img,
+            title="Profile")
 
     return redirect(url_for("login"))
 
 
-@app.route("/edit_profile/<user_id>", methods=["GET", "POST"])
-def edit_profile(user_id):
+@app.route("/edit_profile", methods=["GET", "POST"])
+def edit_profile():
     if request.method == "POST":
         user = {
             "profile_img_url": request.form.get("profile_img_url")
         }
-        mongo.db.categories.update({"_id": ObjectId(user_id)}, user)
+        mongo.db.categories.update("profile_img_url")
         flash("Profile Picture Updated")
         return redirect(url_for("profile"))
 
-    return render_template("edit_profile.html", user=user, title="Edit Profile")
+    return render_template("edit_profile.html", title="Edit Profile")
 
 
 @app.route("/logout")

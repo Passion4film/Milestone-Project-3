@@ -14,7 +14,7 @@
                         <input id="username" name="username" type="text" minlength="5"
                             maxlength="15" pattern="^[a-zA-z0-9]{5,15}$" class="validate" required>
                         <label for="username">Username</label>
-                        <span class="helper-text">5 - 15 characters. Upper/lower A-Z and 0-9</span>
+                        <span class="helper-text">5 - 15 characters. Alphanumeric only</span>
                     </div>
                 </div>
                 <!-- password --> 
@@ -24,16 +24,24 @@
                             <input id="password" name="password" type="password" minlength="5"
                                 maxlength="15" pattern="^[a-zA-z0-9]{5,15}$" class="validate" required>
                             <label for="password">Password</label>
-                            <span class="helper-text">5 - 15 characters. Upper/lower A-Z and 0-9</span>
+                            <span class="helper-text">5 - 15 characters. Alphanumeric only</span>
                         </div>
                     </div>
                 <!-- profile image url -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="far fa-image prefix brown-text text-shadow"></i>
-                        <label for="profile_img_url">Please upload an image URL of the recipe, we recommend using a free hosting site - such as <a href="https://imgbb.com/" target="_blank">IMBB.com</a></label>
+                        <label for="profile_img_url">
+                            Please upload an image URL for a profile picture.
+                        </label>
                         <input type="url" id="profile_img_url" name="profile_img_url" pattern="https://.*" 
                             size="30" required>
+                        <p>
+                            You can right-click on your profile picture on social media and 'Copy Image Address' Then paste it here.  
+                            If you want to upload an image from your computer and we recommend using a free hosting site - such as 
+                            <a href="https://imgbb.com/" target="_blank">IMBB.com</a> When the image is uploaded right click, 'Copy Image Address'
+                            and paste here.
+                        </p>
                     </div>
                 </div>
                 <!-- register -->

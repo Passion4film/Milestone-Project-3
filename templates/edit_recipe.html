@@ -85,10 +85,19 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="far fa-image prefix deep-purple-text text-darken-3 text-shadow"></i>
-                    <label for="url">If you want to upload a different image URL of the recipe, we recommend using a free hosting site - such as 
-                        <a href="https://imgbb.com/" target="_blank">IMBB.com</a></label>
-                    <input type="url" id="url" name="url" pattern="https://.*" 
-                        size="30">
+                    <label for="img_url">
+                        Image URL of the recipe
+                    </label>
+                    <input type="url" id="img_url" name="img_url" pattern="https://.*" 
+                        size="30" value="{{ recipe.img_url }}" required>
+                    <p>You can use an image from a royalty free stock, such as 
+                    <a href="https://pixabay.com/" target="_blank">Pixabay.</a> 
+                    If you want to upload your own image, we recommend using a free hosting site - such as 
+                    <a href="https://imgbb.com/" target="_blank">IMBB.com</a>
+                </p>
+                <p>
+                    Please right click on the image and 'Copy Image Address' then paste here.
+                </p>
                 </div>
             </div>
             <!-- submit button -->

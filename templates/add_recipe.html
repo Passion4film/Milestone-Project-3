@@ -4,7 +4,7 @@
     <h3 class="deep-purple-text text-darken-3 center-align">{{ title }}</h3>
 
     <div class="row card-panel brown darken-1 white-text">
-        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}" enctype="multipart/form-data">
             <!-- the recipe category selection -->
             <div class="row">
                 <div class="input-field col s12">
@@ -31,17 +31,20 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-balance-scale prefix deep-purple-text text-darken-3 text-shadow"></i>
-                    <textarea id="ingredients_measurements" name="ingredients_measurements" 
-                        minlength="5" maxlength="300" class="materialize-textarea validate" required></textarea>
+                    <input id="ingredients_measurements" name="ingredients_measurements" 
+                        minlength="5" maxlength="300" type="text" class="validate" required>
+                    <div id="dynamicInput"></div>
                     <label for="ingredients_measurements">Ingredients and Measurements</label>
+                     <a class="btn-small deep-purple lighten-2">Add Another
+                    Ingredient</a>
                 </div>
             </div>
             <!-- preparation steps for the recipe -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-clipboard-list prefix deep-purple-text text-darken-3 text-shadow"></i>
-                    <textarea id="preparation_steps" name="preparation_steps" 
-                        minlength="5" maxlength="400" class="materialize-textarea validate" required></textarea>
+                    <input id="preparation_steps" name="preparation_steps" 
+                        minlength="5" maxlength="400" type="text" class="validate" required>
                     <label for="preparation_steps">Preparation Steps</label>
                 </div>
             </div>
@@ -49,9 +52,9 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-stopwatch prefix deep-purple-text text-darken-3 text-shadow"></i>
-                    <textarea id="time" name="time" 
-                        minlength="5" maxlength="200" class="materialize-textarea validate" required></textarea>
-                    <label for="time">Time</label>
+                    <input id="time" name="time" minlength="5" maxlength="200" type="text" class="validate" 
+                        placeholder="eg. 30 mins at 180 degrees" required>
+                    <label for="time">Bake Time & Temperature</label>
                 </div>
             </div>
             <!-- vegan check-box -->
@@ -71,15 +74,15 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="far fa-image prefix deep-purple-text text-darken-3 text-shadow"></i>
-                    <label for="img_url">Please upload an image URL of the recipe, 
-                        You can use an image from a royalty free stock, such as 
-                        <a href="https://pixabay.com/" target="_blank">Pixabay.</a> 
-                        If you want to upload your own image, we recommend using a free hosting site - such as 
-                        <a href="https://imgbb.com/" target="_blank">IMBB.com</a>
-                    </label>
+                    <label for="img_url">Please upload an image URL of the recipe</label>
                     <input type="url" id="img_url" name="img_url" pattern="https://.*" 
-                        size="30" required>
+                        size="30" placeholder="" required>
                 </div>
+                <p>You can use an image from a royalty free stock, such as 
+                    <a href="https://pixabay.com/" target="_blank">Pixabay.</a> 
+                    If you want to upload your own image, we recommend using a free hosting site - such as 
+                    <a href="https://imgbb.com/" target="_blank">IMBB.com</a>
+                </p>
             </div>
             <!-- submit button -->
             <div class="row">

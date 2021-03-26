@@ -28,11 +28,11 @@
     {% if recipes|length > 0 %}
         <div class="row">
             {% for recipe in recipes %}
-                <div class="col s12 m6">
+                <div class="col m4 s12">
                     <div class="card deep-purple darken-2">
                         <div class="card-image waves-effect waves-block waves-light">
                             <!-- recipe image -->
-                            <img class="activator" src="{{ recipe.img_url }}">
+                            <img class="activator recipe_img" src="{{ recipe.img_url }}">
                         </div>
                         <div class="card-content">
                             <span class="card-title activator white-text text-shadow">
@@ -71,6 +71,7 @@
                             <!-- recipe name repeated -->
                             <span class="card-title grey-text text-darken-4">
                                 <strong>{{ recipe.recipe_name }}</strong>
+                                <i class="far fa-window-close right"></i>
                             </span>
                             <!-- recipe category -->
                             <i class="fas fa-birthday-cake"></i> <strong>Category</strong>

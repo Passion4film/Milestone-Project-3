@@ -47,3 +47,13 @@ label {
 .welcome-image {
     border-radius: 25%;
 }
+
+.recipe_img {
+    height: 100%;
+    width: 100%;
+}
+
+.profile_picture {
+    height: 400px;
+    width: 400px;
+}

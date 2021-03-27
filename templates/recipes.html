@@ -82,9 +82,11 @@
                             <br>
                             <!-- recipe ingredients/measurements -->
                             <i class="fas fa-balance-scale"></i> <strong>Ingredients and Measurements</strong>
-                            <p>
-                                {{ recipe.ingredients_measurements }}
-                            </p>
+                            {% for ingredient in recipe.ingredients_measurements %}
+                                    <li>
+                                        {{ ingredient }}
+                                    </li>
+                                {% endfor %}
                             <br>
                             <!-- recipe preparation steps -->
                             <i class="fas fa-clipboard-list"></i> <strong>Preparation Steps</strong>

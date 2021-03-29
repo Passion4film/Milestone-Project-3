@@ -32,7 +32,7 @@
                 </div>
             </div>
             <!-- the ingredients and measurements needed for the recipe -->
-            <div class="row">
+            <div class="row" id="extraIngredients">
                 <div class="input-field col s12">
                     <i class="fas fa-balance-scale prefix deep-purple-text text-darken-3 text-shadow"></i>
                     <textarea id="ingredients_measurements" name="ingredients_measurements" 
@@ -40,6 +40,8 @@
                         {{- recipe.ingredients_measurements -}}
                     </textarea>
                     <label for="ingredients_measurements">Ingredients and Measurements</label>
+                    <a id="addIngredient" class="btn-small deep-purple lighten-2">Add Another
+                    Ingredient</a>
                 </div>
             </div>
             <!-- preparation steps for the recipe -->

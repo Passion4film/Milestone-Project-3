@@ -37,7 +37,3 @@ $(document).ready(function() {
         });
     }
 });
-
-var myCropWidget = cloudinary.createUploadWidget({
-  cloudName: 'demo', uploadPreset: 'preset1', folder: 'widgetUpload', cropping: true}, 
-  (error, result) => { console.log(error, result) })

@@ -38,12 +38,13 @@
                 </div>
             </div>
             <!-- preparation steps for the recipe -->
-            <div class="row">
+            <div class="row" id="extraSteps">
                 <div class="input-field col s12">
                     <i class="fas fa-clipboard-list prefix deep-purple-text text-darken-3 text-shadow"></i>
                     <input id="preparation_steps" name="preparation_steps" 
                         minlength="5" maxlength="400" type="text" class="validate white-text" required>
                     <label for="preparation_steps">Preparation Steps</label>
+                    <a id="addStep" class="btn-small deep-purple lighten-2 text-shadow">Next Step</a>
                 </div>
             </div>
             <!-- time recipe takes -->
@@ -91,11 +92,11 @@
             <div class="row">
                 <div class="col s12 center-align">
                     <!-- cancel changes button -->
-                    <a href="{{ url_for('get_recipes') }}" class="btn deep-purple lighten-2 text-shadow">
+                    <a href="{{ url_for('get_recipes') }}" class="btn-small deep-purple lighten-2 text-shadow">
                         Cancel <i class="fas fa-times-circle right"></i>
                     </a>
                     <!-- confirm add button -->
-                    <button type="submit" class="btn deep-purple darken-3 text-shadow">
+                    <button type="submit" class="btn-small deep-purple darken-3 text-shadow">
                         Add Recipe <i class="fas fa-plus-square right"></i>
                     </button>
                 </div>

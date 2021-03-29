@@ -51,34 +51,6 @@
                                 <strong>{{ recipe.recipe_name }}</strong>
                                 <i class="far fa-window-close right"></i>
                             </span>
-                            <hr>
-                            <!-- recipe category -->
-                            <i class="fas fa-birthday-cake"></i> <strong>Category</strong>
-                            <p>
-                                {{ recipe.category_name }}
-                            </p>
-                            <br>
-                            <!-- recipe ingredients/measurements -->
-                            <i class="fas fa-balance-scale"></i> <strong>Ingredients and Measurements</strong>
-                            {% for ingredient in recipe.ingredients_measurements %}
-                                    <li>
-                                        {{ ingredient }}
-                                    </li>
-                                {% endfor %}
-                            <br>
-                            <!-- recipe preparation steps -->
-                            <i class="fas fa-clipboard-list"></i> <strong>Preparation Steps</strong>
-                            <p>
-                                {{ recipe.preparation_steps }}
-                            </p>
-                            <br>
-                            <!-- recipe time needed -->
-                            <i class="fas fa-stopwatch"></i> <strong>Time</strong>
-                            <p>
-                                {{ recipe.time}}
-                            </p>
-                            <!-- recipe added by -->
-                            <p><em>by: {{ recipe.created_by }}</em></p>
                             {% if session.user|lower == recipe.created_by|lower %}
                                 <!-- edit recipe -->
                                 <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small brown lighten-3">Edit</a>
@@ -101,6 +73,36 @@
                                     </div>
                                 </div>
                             {% endif %}
+                            <hr>
+                            <!-- recipe category -->
+                            <i class="fas fa-birthday-cake"></i> <strong>Category</strong>
+                            <p>
+                                {{ recipe.category_name }}
+                            </p>
+                            <br>
+                            <!-- recipe ingredients/measurements -->
+                            <i class="fas fa-balance-scale"></i> <strong>Ingredients and Measurements</strong>
+                                {% for ingredient in recipe.ingredients_measurements %}
+                                    <li>
+                                        {{ ingredient }}
+                                    </li>
+                                {% endfor %}
+                            <br>
+                            <!-- recipe preparation steps -->
+                            <i class="fas fa-clipboard-list"></i> <strong>Preparation Steps</strong>
+                                {% for steps in recipe.preparation_steps %}
+                                    <li>
+                                        {{ steps }}
+                                    </li>
+                                {% endfor %}
+                            <br>
+                            <!-- recipe time needed -->
+                            <i class="fas fa-stopwatch"></i> <strong>Time</strong>
+                            <p>
+                                {{ recipe.time}}
+                            </p>
+                            <!-- recipe added by -->
+                            <p><em>by: {{ recipe.created_by }}</em></p>
                         </div>
                     </div>
                 </div>

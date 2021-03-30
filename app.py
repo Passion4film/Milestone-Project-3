@@ -110,6 +110,7 @@ def profile(username):
         {"username": session["user"]})["profile_img_url"]
 
     if session["user"]:
+        user = mongo.db.users.find_one({"username": session["user"]})
         return render_template("profile.html",
                                 username=username,
                                 profile_img=profile_img,
@@ -118,7 +119,7 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-@app.route("/edit_profile/", methods=["GET", "POST"])
+@app.route("/edit_profile", methods=["GET", "POST"])
 def edit_profile():
     if request.method == "POST":
         submit = {
@@ -149,7 +150,7 @@ def add_recipe():
             "recipe_name": request.form.get("recipe_name"),
             "ingredients_measurements":
                 request.form.getlist("ingredients_measurements"),
-            "preparation_steps": request.form.get("preparation_steps"),
+            "preparation_steps": request.form.getlist("preparation_steps"),
             "time": request.form.get("time"),
             "is_vegan": is_vegan,
             "img_url": request.form.get("img_url"),
@@ -174,7 +175,7 @@ def edit_recipe(recipe_id):
             "recipe_name": request.form.get("recipe_name"),
             "ingredients_measurements":
                 request.form.getlist("ingredients_measurements"),
-            "preparation_steps": request.form.get("preparation_steps"),
+            "preparation_steps": request.form.getlist("preparation_steps"),
             "time": request.form.get("time"),
             "is_vegan": is_vegan,
             "img_url": request.form.get("img_url"),

@@ -10,9 +10,9 @@
                 <div class="input-field col s12">
                     <i class="fas fa-birthday-cake prefix deep-purple-text text-darken-3 text-shadow"></i>
                     <select id="category_name" name="category_name" required>
-                    <option value="" disabled selected>Choose Category</option>
+                    <option value="" disabled selected></option>
                         {% for category in categories %}
-                            <option value="{{ category.category_name }}" class="white-text">{{ category.category_name }}</option>
+                            <option value="{{ category.category_name }}" id="option-colour">{{ category.category_name }}</option>
                         {% endfor %}
                     </select>
                     <label for="category_name">Recipe Category</label>
@@ -74,7 +74,7 @@
                 <div class="input-field col s12">
                     <i class="far fa-image prefix deep-purple-text text-darken-3 text-shadow"></i>
                     <label for="img_url">
-                        Please upload an image URL of the recipe
+                        Image URL of the recipe
                     </label>
                     <input type="url" id="img_url" name="img_url" pattern="https://.*" 
                         size="30" placeholder="https://" class="white-text" required>

@@ -47,6 +47,33 @@ BitterSweet©, which is a new chocolate company, would like to promote their pro
 
 ## Wireframes page designs:
 
+Home page:
+
+<img src="static/images/wireframes/home_page.png" style="margin: 0;">
+
+Register Page:
+
+<img src="static/images/wireframes/register.png" style="margin: 0;">
+
+Log In Page:
+
+<img src="static/images/wireframes/login.png" style="margin: 0;">
+
+Profile Page:
+
+<img src="static/images/wireframes/profile.png" style="margin: 0;">
+
+All Recipes Page:
+
+<img src="static/images/wireframes/all_recipes.png" style="margin: 0;">
+
+Add / Edit Recipes Page:
+
+<img src="static/images/wireframes/add_edit_recipes.png" style="margin: 0;">
+
+Categories Page - only for the Admin:
+
+<img src="static/images/wireframes/categories-for_admin.png" style="margin: 0;">
 
 ## Features
 
@@ -57,7 +84,7 @@ BitterSweet©, which is a new chocolate company, would like to promote their pro
 
 ### Languages Used
 
--   In this project I used [HTML5](https://en.wikipedia.org/wiki/HTML5), [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), [JQuery](https://jquery.com/) and [Python](https://en.wikipedia.org/wiki/Python_(programming_language)). 
+-   In this project I used [HTML5](https://en.wikipedia.org/wiki/HTML5), [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), [JQuery](https://jquery.com/), [JavaScript](https://en.wikipedia.org/wiki/JavaScript) and [Python](https://en.wikipedia.org/wiki/Python_(programming_language)). 
 
 ### Frameworks, Libraries & Programs Used
 
@@ -91,22 +118,21 @@ JSHint was used to check there were no errors in the JavaScript code, while ther
 ### Testing User Stories from User Experience (UX) Section
 
 - #### Site user goals
-    1. As a site user, I want .
+    1. As a site user, I want to be able to register for the site and navigate it easily, then to be able to log in and out when I wish.
         -   
 
-    2. As a site user, I want  
+    2. As a site user, I want to be able to view the recipes already on the site, but also to add and display my own.
         -   
 
-    3. As a site user, I want 
+    3. As a site user, I want to be able to edit and/or delete my recipes when I want to.
         -   
-
 
 - #### Site owner goals
-    1. As a site owner, I want . 
+    1. As a site owner, I want to promote the company BitterSweet© and to suggest the users try these new chocolate products in the recipes. 
         -   
-    2. As a site owner, I want .
+    2. As a site owner, I want the users to be able to create an acocunt and navigate the site easily, as well as create/edit/delete their recipes as much as they choose to.
         -   
-    3. As a site owner, I want 
+    3. As a site owner, I want the users to be able to search through the chocolate recipes on the site for keywords or ingredients.
         -   
 
 ### Further Testing

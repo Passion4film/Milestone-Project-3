@@ -32,33 +32,59 @@
                 </div>
             </div>
             <!-- the ingredients and measurements needed for the recipe -->
-            <div class="row" id="extraIngredients">
-                <div class="input-field col s12">
-                    <i class="fas fa-balance-scale prefix deep-purple-text text-darken-3 text-shadow"></i>
-                    <textarea id="ingredients_measurements" name="ingredients_measurements" 
-                        minlength="5" maxlength="200" class="materialize-textarea validate white-text" required>
-                    {% for ingredient in recipe.ingredients_measurements %}
-                        {{- ingredient }}
-                    {% endfor %}
-                    </textarea>
-                    <label for="ingredients_measurements">Ingredients and Measurements</label>
-                    <a id="addIngredient" class="btn-small deep-purple lighten-2">New Ingredient</a>
+            <div class="row" id="first_ingredient">
+                <div class="new_ingredient">
+                    <div class="input-field col s12">
+                        <i class="fas fa-balance-scale prefix deep-purple-text text-darken-3 text-shadow"></i>
+                        <textarea id="ingredients_measurements" name="ingredients_measurements" 
+                            minlength="5" maxlength="200" class="materialize-textarea validate white-text" required>
+                        {% for ingredient in recipe.ingredients_measurements %}
+                            {{- ingredient }}
+                        {% endfor %}
+                        </textarea>
+                        <label for="ingredients_measurements">Ingredients and Measurements</label>
+                    </div>
                 </div>
+                <!-- add/remove ingredients buttons -->
+                <button type="button" class="btn-small deep-purple lighten-2 text-shadow" onclick="addIngredient();">
+                New Ingredient
+                </button>
+                <button type="button" class="btn-small deep-purple lighten-2 text-shadow" onclick="removeIngredient();">
+                    Remove
+                </button>
             </div>
+
+             <!-- more ingredients -->
+            <div id="moreIngredients"></div>
+            <!-- more ingredients -->
+
             <!-- preparation steps for the recipe -->
             <div class="row" id="extraSteps">
-                <div class="input-field col s12">
-                    <i class="fas fa-clipboard-list prefix deep-purple-text text-darken-3 text-shadow"></i>
-                    <textarea id="preparation_steps" name="preparation_steps" 
-                        minlength="5" maxlength="200" class="materialize-textarea validate white-text" required>
-                    {% for steps in recipe.preparation_steps %}
-                        {{- steps }}
-                    {% endfor %}
-                    </textarea>
-                    <label for="preparation_steps">Preparation Steps</label>
-                    <a id="addStep" class="btn-small deep-purple lighten-2 text-shadow">Next Step</a>
+                <div class="new_step">
+                    <div class="input-field col s12">
+                        <i class="fas fa-clipboard-list prefix deep-purple-text text-darken-3 text-shadow"></i>
+                        <textarea id="preparation_steps" name="preparation_steps" 
+                            minlength="5" maxlength="200" class="materialize-textarea validate white-text" required>
+                        {% for steps in recipe.preparation_steps %}
+                            {{- steps }}
+                        {% endfor %}
+                        </textarea>
+                        <label for="preparation_steps">Preparation Steps</label>
+                    </div>
                 </div>
+                <!-- add/remove preparation steps buttons -->
+                <button type="button" class="btn-small deep-purple lighten-2 text-shadow" onclick="addStep();">
+                Next Step
+                </button>
+                <button type="button" class="btn-small deep-purple lighten-2 text-shadow" onclick="removeStep();">
+                    Remove
+                </button>
             </div>
+
+            <!-- more preparation steps -->
+            <div id="moreSteps"></div>
+            <!-- more preparation steps -->
+
             <!-- time recipe takes -->
             <div class="row">
                 <div class="input-field col s12">

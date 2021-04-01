@@ -37,3 +37,25 @@ $(document).ready(function() {
         });
     }
 });
+
+/*
+    jQuery for adding/removing ingredients and preparation steps
+    code inspired by youtube video: https://www.youtube.com/watch?v=7LpZYOyVDK0 - made by Knowledge Thrusters
+*/
+
+function addIngredient(){
+    $('#first_ingredient .new_ingredient').clone().find('input').val('').end()
+        .appendTo('#moreIngredients');
+}
+function removeIngredient(){
+    $('#moreIngredients .new_ingredient').last().remove();
+}
+
+function addStep(){
+    $('#extraSteps .new_step').clone().find('input').val('').end()
+        .appendTo('#moreSteps');
+}
+
+function removeStep(){
+    $('#moreSteps .new_step').last().remove();
+}

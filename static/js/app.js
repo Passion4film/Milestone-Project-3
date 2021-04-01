@@ -1,7 +1,7 @@
 /*
     function for adding new recipe ingredients 
 */
-var ingredientCount = 1;
+/* var ingredientCount = 1;
     document.getElementById('addIngredient').addEventListener('click', function(){
         let nextId = 'next'+ ingredientCount + 1;
         const labelText = 'New Ingredient'
@@ -24,7 +24,7 @@ var ingredientCount = 1;
 /*
     function for adding new recipe preparation steps 
 */
-var stepCount = 1;
+/*var stepCount = 1;
     document.getElementById('addStep').addEventListener('click', function(){
         let nextId = 'next'+ stepCount + 1;
         const labelText = 'Next Step'
@@ -43,3 +43,4 @@ var stepCount = 1;
             });
         });
     });
+*/

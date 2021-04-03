@@ -7,8 +7,10 @@ $(document).ready(function() {
     $('.tooltipped').tooltip();
     $('select').formSelect();
     $('.modal').modal();
-    $('.carousel').carousel();
 
+/*
+    jQuery for Materialize Select Validation - from Task Manager Project in Code Institute
+*/
     validateMaterializeSelect();
     function validateMaterializeSelect() {
         let classValid = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };
@@ -46,16 +48,17 @@ $(document).ready(function() {
 function addIngredient(){
     $('#first_ingredient .new_ingredient').clone().find('input').val('').end()
         .appendTo('#moreIngredients');
-}
+};
+
 function removeIngredient(){
     $('#moreIngredients .new_ingredient').last().remove();
-}
+};
 
 function addStep(){
     $('#extraSteps .new_step').clone().find('input').val('').end()
         .appendTo('#moreSteps');
-}
+};
 
 function removeStep(){
     $('#moreSteps .new_step').last().remove();
-}
+};

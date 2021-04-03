@@ -19,6 +19,10 @@ h2, h3, h4, .modal-content, footer {
     font-family: "Satisfy", sans-serif;
 }
 
+h6 {
+    text-decoration: underline;
+}
+
 .btn-small {
     margin: 5px;
 }
@@ -51,7 +55,7 @@ label {
 
 .recipe_img {
     height: 500px;
-    width: 200px;
+    width: 300px;
 }
 
 .profile_picture {
@@ -65,4 +69,12 @@ label {
 
 .image-input {
     color: #ffffff;
+}
+
+.select-wrapper input.select-dropdown { 
+    color:white !important;
+}
+
+.hidden {
+    display:none;
 }

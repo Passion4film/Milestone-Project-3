@@ -107,7 +107,7 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"].capitalize()
     profile_img = mongo.db.users.find_one(
-        {"username": session["user"]})["profile_img_url"]
+        {"username": session["user"]})["profile_img"]
 
     if session["user"]:
         user = mongo.db.users.find_one({"username": session["user"]})
@@ -119,18 +119,20 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-@app.route("/edit_profile", methods=["GET", "POST"])
-def edit_profile():
+@app.route("/edit_profile/<username>", methods=["GET", "POST"])
+def edit_profile(username):
     if request.method == "POST":
-        submit = {
-            "profile_img_url": request.form.get("profile_img_url")
-        }
-        mongo.db.categories.update({"_id": ObjectId(user_id)}, submit)
+        original_username = username
+        username = username.lower()
+        current_user = mongo.db.users.find_one({"username": username})
+        current_user['profile_img'] = request.form.get("profile_img")
+        mongo.db.users.update({"username": username}, current_user)
         flash("Profile Picture Updated")
-        return redirect(url_for("profile"))
+        return redirect(url_for("profile", username=original_username))
 
     return render_template("edit_profile.html",
-                            title="Edit Profile")
+                            title="Edit Profile",
+                            username=username)
 
 
 @app.route("/logout")

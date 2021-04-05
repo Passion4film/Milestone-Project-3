@@ -155,7 +155,7 @@ def add_recipe():
             "preparation_steps": request.form.getlist("preparation_steps"),
             "time": request.form.get("time"),
             "is_vegan": is_vegan,
-            "img_url": request.form.get("img_url"),
+            "recipe_img": request.form.get("recipe_img"),
             "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
@@ -180,7 +180,7 @@ def edit_recipe(recipe_id):
             "preparation_steps": request.form.getlist("preparation_steps"),
             "time": request.form.get("time"),
             "is_vegan": is_vegan,
-            "img_url": request.form.get("img_url"),
+            "recipe_img": request.form.get("recipe_img"),
             "created_by": session["user"]
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)

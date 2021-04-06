@@ -44,7 +44,7 @@ h6 {
     color: #ffffff;
 }
 
-label {
+label, .redirection-info {
     font-family: "Baloo Tammudu 2", sans-serif;
     font-size: 15px;
 }
@@ -54,8 +54,8 @@ label {
 }
 
 .recipe_img {
-    height: 500px;
-    width: 300px;
+    height: 650px;
+    width: auto;
 }
 
 .profile_picture {
@@ -77,4 +77,25 @@ label {
 
 .hidden {
     display:none;
+}
+
+.footer-icon {
+    font-size: 30px;
+}
+
+@media only screen 
+and (min-width: 320px) 
+and (max-width: 600px)  {
+    .recipe_img {
+    height: 450px;
+    width: auto;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+    .recipe_img {
+    height: 400px;
+    width: auto;
+    }
 }

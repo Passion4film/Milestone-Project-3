@@ -3,6 +3,7 @@
 
     <h3 class="deep-purple-text text-darken-3 center-align">{{ title }}</h3>
 
+    <!-- edit profile image form -->
     <div class="row card-panel brown darken-1 white-text">
         <form class="col s12" method="POST" action="{{ url_for('edit_profile', username=username) }}">
             <!-- image url -->
@@ -17,8 +18,8 @@
                     <p>
                         You can right-click on your profile picture on social media and 'Copy Image Address' Then paste it here.  
                         If you want to upload an image from your computer we recommend using a free hosting site - such as 
-                        <a href="https://imgbb.com/" target="_blank">IMBB.com.</a> When the image is uploaded right click, 'Copy Image Address'
-                        and paste here.
+                        <a href="https://imgbb.com/" target="_blank">IMBB.com.</a> When the image is uploaded, right click on it & 'Copy Image Address'
+                        and then paste here.
                     </p>
                     <!-- submit button -->
                     <div class="row">

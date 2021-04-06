@@ -3,14 +3,15 @@
 
     <h3 class="deep-purple-text text-darken-3 center-align">{{ title }}</h3>
 
-    <div class="row card-panel brown darken-1">
+    <!-- Add a new Recipe form -->
+    <div class="row card-panel brown darken-1 white-text">
         <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}" enctype="multipart/form-data">
             <!-- the recipe category selection -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-birthday-cake prefix deep-purple-text text-darken-3 text-shadow"></i>
                     <select id="category_name" name="category_name" required>
-                    <option value="" disabled selected></option>
+                    <option value="" disabled selected>Choose Category</option>
                         {% for category in categories %}
                             <option value="{{ category.category_name }}" id="option-colour">{{ category.category_name }}</option>
                         {% endfor %}
@@ -28,44 +29,48 @@
                 </div>
             </div>
             <!-- the ingredients and measurements needed for the recipe -->
+            <h6>Ingredients and Measurements</h6>
+            
             <div class="row" id="first_ingredient">
                 <div class="new_ingredient">
                     <div class="input-field col s12">
                         <i class="fas fa-balance-scale prefix deep-purple-text text-darken-3 text-shadow"></i>
                         <input id="ingredients_measurements" name="ingredients_measurements" 
                             minlength="5" maxlength="300" type="text" class="validate white-text" required>
-                        <label for="ingredients_measurements">Ingredients and Measurements</label>
+                        <label for="ingredients_measurements">Ingredients</label>
                     </div>
                 </div>
                 <!-- add/remove ingredients buttons -->
                 <button type="button" class="btn-small deep-purple lighten-2 text-shadow" onclick="addIngredient();">
-                New Ingredient
+                    <i class="fas fa-plus-square"></i>
                 </button>
                 <button type="button" class="btn-small deep-purple lighten-2 text-shadow" onclick="removeIngredient();">
-                    Remove
+                    <i class="fas fa-trash-alt"></i>
                 </button>
             </div>
 
             <!-- more ingredients -->
             <div id="moreIngredients"></div>
             <!-- more ingredients -->
-
+            <br>
             <!-- preparation steps for the recipe -->
+            <h6>Preparation Steps</h6>
+
             <div class="row" id="extraSteps">
                 <div class="new_step">
                     <div class="input-field col s12">
                         <i class="fas fa-clipboard-list prefix deep-purple-text text-darken-3 text-shadow"></i>
                         <input id="preparation_steps" name="preparation_steps" 
                             minlength="5" maxlength="400" type="text" class="validate white-text" required>
-                        <label for="preparation_steps">Preparation Steps</label>
+                        <label for="preparation_steps">Steps</label>
                     </div>
                 </div>
                 <!-- add/remove preparation steps buttons -->
                 <button type="button" class="btn-small deep-purple lighten-2 text-shadow" onclick="addStep();">
-                Next Step
+                    <i class="fas fa-plus-square"></i>
                 </button>
                 <button type="button" class="btn-small deep-purple lighten-2 text-shadow" onclick="removeStep();">
-                    Remove
+                    <i class="fas fa-trash-alt"></i>
                 </button>
             </div>
 
@@ -74,6 +79,7 @@
             <!-- more preparation steps -->
 
             <!-- time recipe takes -->
+            <br>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-stopwatch prefix deep-purple-text text-darken-3 text-shadow"></i>

@@ -3,6 +3,7 @@
 
     <h3 class="deep-purple-text text-darken-3 center-align">{{ title }}</h3>
 
+    <!-- Add a category button -->
     <div class="row">
         <div class="col s12 center-align">
             <a href="{{ url_for('add_category') }}" class="btn-large deep-purple darken-3 text-shadow">
@@ -11,6 +12,7 @@
         </div>
     </div>
 
+    <!-- list of categories -->
     <div class="row">
         {% for category in categories %}
             <div class="col s12 m4">
@@ -23,7 +25,7 @@
                             Edit
                         </a>
                         <!-- delete category -->
-                        <button data-target="{{ category._id }}" class="btn-small brown darken-1 modal-trigger">
+                        <button data-target="{{ category._id }}" class="btn-small text-shadow brown darken-1 modal-trigger">
                             Delete
                         </button>
                             <!-- delete category modal -->

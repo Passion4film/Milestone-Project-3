@@ -11,14 +11,14 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
-# mongoDB config
+# mongoDB config -------------------------------------------------------
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
+# page routes -------------------------------------------------------
 @app.route("/")
 @app.route("/home_page")
 def home_page():
@@ -58,7 +58,7 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "profile_img_url": request.form.get("profile_img_url")
+            "profile_img": request.form.get("profile_img")
         }
         mongo.db.users.insert_one(register)
 
@@ -186,7 +186,7 @@ def edit_recipe(recipe_id):
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Recipe Successfully Edited")
         return redirect(url_for("get_recipes"))
-        
+
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_recipe.html",
@@ -251,3 +251,5 @@ if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
+
+# **remember to set debug to false**

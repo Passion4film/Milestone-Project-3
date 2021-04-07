@@ -1,26 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap');
 
+/*------------------------------------------------in use on multiple pages */
 .text-shadow {
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
-}
-
-nav, .sidenav {
-    font-family: "Satisfy", sans-serif;
-    font-size: 20px;
-}
-
-.flashes h4 {
-    line-height: 2;
-    font-family: "Satisfy", sans-serif;
 }
 
 h2, h3, h4, .modal-content, footer {
     font-family: "Satisfy", sans-serif;
 }
 
-h6 {
-    text-decoration: underline;
+/*------------------------------------------------nav and side bar */
+nav, .sidenav {
+    font-family: "Satisfy", sans-serif;
+    font-size: 20px;
+}
+
+/*------------------------------------------------Flash messages */
+.flashes h4 {
+    line-height: 2;
+    font-family: "Satisfy", sans-serif;
 }
 
 .btn-small {
@@ -32,6 +31,7 @@ h6 {
     line-height: 42px;
 }
 
+/*------------------------------------------------home page - welcome & company info  */
 .company-intro {
     font-family: "Baloo Tammudu 2", sans-serif;
     font-size: 25px;
@@ -53,24 +53,24 @@ label, .redirection-info {
     border-radius: 25%;
 }
 
+/*------------------------------------------------recipe images */
 .recipe_img {
     height: 650px;
     width: auto;
 }
 
+/*------------------------------------------------profile images */
 .profile_picture {
     height: 500px;
     width: 400px;
 }
 
+/*------------------------------------------------search */
 #query {
     color: #ffffff;
 }
 
-.image-input {
-    color: #ffffff;
-}
-
+/*------------------------------------------------add/edit recipe */
 .select-wrapper input.select-dropdown { 
     color:white !important;
 }
@@ -79,10 +79,23 @@ label, .redirection-info {
     display:none;
 }
 
+h6 {
+    text-decoration: underline;
+    font-family: "Baloo Tammudu 2", sans-serif;
+}
+
+.image-input {
+    color: #ffffff;
+    font-family: "Baloo Tammudu 2", sans-serif;
+    font-size: 17px;
+}
+
+/*------------------------------------------------Footer links */
 .footer-icon {
     font-size: 30px;
 }
 
+/*------------------------------------------------Media Queries */
 @media only screen 
 and (min-width: 320px) 
 and (max-width: 600px)  {

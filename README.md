@@ -76,6 +76,28 @@ Categories Page - only for the Admin:
 
 <img src="static/images/wireframes/categories-for_admin.png" style="margin: 0;">
 
+## MongoDB data schema design
+
+MongoDB is a non-relational database, the database stores 'collections' instead of tables.
+
+*"MongoDB is an open-source document database built on a horizontal scale-out architecture. Founded in 2007, MongoDB has a worldwide following in the developer community.
+Instead of storing data in tables of rows or columns like SQL databases, each row in a MongoDB database is a document described in JSON, a formatting language."*
+
+*"Document databases are extremely flexible, allowing variations in the structure of documents and allowing storage of documents that are partially complete. One document 
+can have others embedded in it. Fields in a document play the role of columns in a SQL database, and like columns, they can be indexed to increase search performance."*
+
+*   The document data model is a powerful way to store and retrieve data.
+
+*   MongoDB has a great user experience for developers who can install MongoDB and start writing code immediately.
+
+*   MongoDB can be used everywhere by anyone.
+
+Check out more about why to use MongoDB [here](https://www.mongodb.com/why-use-mongodb)
+
+### The BitterSweet© MongoDB collection design:
+
+<img src="static/images/screenshots/mongodb-schema.png" style="margin: 0;">
+
 ## Features
 
 -   Responsive on all device sizes. For example:
@@ -219,11 +241,10 @@ all pages on all devices.
 -   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues, they reported a success on all fronts.
 -   The website was tested on [Lighthouse](https://developers.google.com/web/tools/lighthouse) and achieved a high score on all issues:
 
-    <img src="screenshots/lighthouse-desktop.jpg" style="margin: 0;">
-    <img src="screenshots/lighthouse-mobile.jpg" style="margin: 0;">
+    <img src="static/images/screenshots/lighthouse.png" style="margin: 0;">
 
     You can use the Lighthouse Tool on any webpage by right clicking on the site, then 'inspect', then the two arrow button '>>' and 'Lighthouse'. You can select to test the site 
-    as a desktop version or mobile version and then click the blue 'Generate Report' which will provide you with the results in the screenshots provided above.
+    as a desktop version or mobile version and then click the blue 'Generate Report' which will provide you with the results in the screenshot provided above.
 
 ## Known Bugs
 

@@ -45,6 +45,8 @@ BitterSweet©, which is a new chocolate company, would like to promote their pro
         -   The imagery used for the recipes is dependent on the content uploaded by the user. I was unable to create a system where the user uploads their own photo 
         directly to the site, however, they can upload to a free hosting platform that I have linked to in my new recipe form, they just need to paste the image url to the 
         site and it will display with the recipe details.
+        -   I created a favicon icon for the browser tab - a smaller version of the logo image with the initials 'B & S' 
+        <img src="static/images/bs-favicon-small.png" style="margin: 0;">
 
 ## Wireframes page designs:
 
@@ -97,6 +99,8 @@ Check out more about why to use MongoDB [here](https://www.mongodb.com/why-use-m
 ### The BitterSweet© MongoDB collection design:
 
 <img src="static/images/screenshots/mongodb-schema.png" style="margin: 0;">
+
+The Categories list contains 
 
 ## Features
 
@@ -359,7 +363,7 @@ Online tutorials:
 
 ### Media
 
-I created the logo and mock-designs for chocolate bars for the site using Adobe Photoshop.
+I created the logo, flavicon and mock-designs for chocolate bars for the site using Adobe Photoshop.
 
 The images used to create the photoshopped designs were obtained from Google/images. 
 

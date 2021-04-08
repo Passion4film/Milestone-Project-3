@@ -112,7 +112,6 @@ def profile(username):
         {"username": session["user"]})["profile_img"]
 
     if session["user"]:
-        user = mongo.db.users.find_one({"username": session["user"]})
         return render_template("profile.html",
                                 username=username,
                                 profile_img=profile_img,
@@ -247,6 +246,13 @@ def delete_category(category_id):
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("get_categories"))
+
+
+# 404 Error page -------------------------------------------------------
+@app.errorhandler(404)
+def page_not_found(e):
+    # if page not found - redirects to 404 error page
+    return render_template('404.html'), 404
 
 
 if __name__ == "__main__":

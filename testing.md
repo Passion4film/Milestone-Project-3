@@ -2,25 +2,25 @@
 
 * Checking flask is running:
 
-<img src="static/images/screenshots/check-flask1.png" style="margin: 0;">
-<img src="static/images/screenshots/check-flask2.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897083/check-flask1_txh6hd.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897083/check-flask2_dv5fp4.png" style="margin: 0;">
 
 * Checking flask is connected to MongoDB
 
-<img src="static/images/screenshots/mongodb-connection1.png" style="margin: 0;">
-<img src="static/images/screenshots/mongodb-connection2.png" style="margin: 0;">
-<img src="static/images/screenshots/mongodb-connection3.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897083/mongodb-connection1_p5kzpz.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897083/mongodb-connection2_rvs14z.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/mongodb-connection3_jubupr.png" style="margin: 0;">
 
 * Testing base template works:
 
-<img src="static/images/screenshots/testing-base-template1.png" style="margin: 0;">
-<img src="static/images/screenshots/testing-base-template2.png" style="margin: 0;">
-<img src="static/images/screenshots/testing-base-template3.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897085/testing-base-template1_axkhe6.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897085/testing-base-template2_vyudow.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897085/testing-base-template3_nrbcsh.png" style="margin: 0;">
 
 * Create delete modal so the user has to verify they want to delete a recipe:
 
-<img src="static/images/screenshots/delete-modal1.png" style="margin: 0;">
-<img src="static/images/screenshots/delete-modal2.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897083/delete-modal1_aqoejc.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897083/delete-modal2_iorhve.png" style="margin: 0;">
 
 An issue encountered when setting up the delete a recipe function was that a recipe could be deleted with one click of the button, which means there was a risk that it could 
 be done accidentely or the user could change their mind but have no warning.
@@ -33,7 +33,7 @@ intentions make it much safer and more user-friendly.
 so I moved the buttons (which only appear if the created by user matches the logged in user) now they are under the card-reveal. 
 So, when you click on the card to see the recipe details, then you can see the buttons at the top. Makes the recipes sit much cleaner on the page.
 
-<img src="static/images/screenshots/edit-delete-buttons.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/edit-delete-buttons_jeinee.png" style="margin: 0;">
 
 # Bugs and issues that needed to be overcome:
 

@@ -46,7 +46,7 @@ BitterSweet©, which is a new chocolate company, would like to promote their pro
         directly to the site, however, they can upload to a free hosting platform that I have linked to in my new recipe form, they just need to paste the image url to the 
         site and it will display with the recipe details.
         -   I created a favicon icon for the browser tab - a smaller version of the logo image with the initials 'B & S' 
-        <img src="static/images/bs-favicon-small.png" style="margin: 0;">
+        <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897186/bs-favicon-small_xtrf2b.png" style="margin: 0;">
 
 ## Wireframes page designs:
 
@@ -98,7 +98,7 @@ Check out more about why to use MongoDB [here](https://www.mongodb.com/why-use-m
 
 ### The BitterSweet© MongoDB collection design:
 
-<img src="static/images/screenshots/mongodb-schema.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/mongodb-schema_qd42oe.pngg" style="margin: 0;">
 
 The Categories list contains 
 
@@ -106,52 +106,52 @@ The Categories list contains
 
 -   Responsive on all device sizes. For example:
 
-<img src="static/images/screenshots/responsive1.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897085/responsive1_rmhkgi.png" style="margin: 0;">
 
-<img src="static/images/screenshots/responsive2.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897085/responsive2_fuvfd8.png" style="margin: 0;">
 
-<img src="static/images/screenshots/responsive3.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897085/responsive3_n1evys.png" style="margin: 0;">
 
 -    The first page the users come to is a home page - which explains the site and gives the site owners their opportunity to promote their chocolate products, while tying in with the
 purpose of the site - as a chocolate recipe sharing site.
 
-<img src="static/images/screenshots/home.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897082/home_xvl8t9.png" style="margin: 0;">
 
 -   Users are able to 'Register' or 'Log In' when first entering the site, these pages are clear, self-explanatory and easy to navigate. The users are limited to what pages they can see and
 have no ability to share or edit their own recipes without registering and logging in.
 
-<img src="static/images/screenshots/register.png" style="margin: 0;">
-<img src="static/images/screenshots/login.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/register_dpyqlf.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897082/login_ocvojr.png" style="margin: 0;">
 
 -   As soon as the user successfully registers or logs in, they are re-directed to their own personalised 'Profile' page - where the image url they uploaded as part of their registration
 is loaded on the screen with a welcome message. They also have the ability to edit their profile picture to any url they choose.
 
-<img src="static/images/screenshots/profile.png" style="margin: 0;">
-<img src="static/images/screenshots/edit-profile.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/profile_gclwde.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/edit-profile_prxaot.png" style="margin: 0;">
 
 -  The 'Recipe' page contains all recipes added by users of the site. All recipes are visable, whether a user is registered/logged in or not.
 The recipes consist of Materialise 'Card Reveal' containers - that feature an image of the dish in question, which can be clicked on to reveal the recipe instructions.
 
-<img src="static/images/screenshots/card-reveal1.png" style="margin: 0;">
-<img src="static/images/screenshots/card-reveal2.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897082/card-reveal1_oxcx4j.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897081/card-reveal2_hoegbo.png" style="margin: 0;">
 
 -   If you are the user who created the recipe, you are then given the options to edit the recipe - which takes you to this page:
 
-<img src="static/images/screenshots/edit-recipe.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/edit-recipe_ahsuox.png" style="margin: 0;">
 
 -   Or to delete the recipe, which has defensive programming to double check you want to delete something for safety measures.
 
-<img src="static/images/screenshots/delete.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897083/delete_kiavf2.png" style="margin: 0;">
 
 -   The 'New Recipe' Page allows a registered/logged in user to add a recipe to the site. The form they have to fill in is clear and easy to follow. A url for the image must be included
 The instructions for this is made clear on the page.
 
-<img src="static/images/screenshots/add-recipe.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897081/add-recipe_bfbfht.png" style="margin: 0;">
 
 -   The 'Log Out' option is available as soon as a user logs in - by clicking on this the user's cookies are removed from the site and they are re-directed to the log in page, and must 
 log back in to add, edit or delete any recipes.
 
-<img src="static/images/screenshots/logout.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897082/logout_yodkkm.png" style="margin: 0;">
 
 ### Future Features
 -   I wanted the user to be able to upload any files from their own computer/mobile to the site for the recipe image or profile picture. I tried to do this using Cloudinary and AWS S3 - 
@@ -159,6 +159,14 @@ but was unable to get the code to work in time. After seeing advice on Slack tha
 to improve this in the future I would like to get either Cloudinary or AWS S3 to work.
 
 -   I would also like in the future to enable the users to 'like' their favourite recipes, which could be saved to their profile page so they have easy access to the recipes they like.
+
+## Error Handling
+
+I created a custom 404 error page so that if the user encounters a page that doesn't exist, the stlye of the error page matches the rest of the site. This makes the site more professional.
+
+I reviewed the documentation on [Flask](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/) in order to achieve this.
+
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897082/404-page_rki2vg.png" style="margin: 0;">
 
 ## Technologies Used
 
@@ -225,11 +233,11 @@ JSHint was used to check there were no errors in the JavaScript code
 
     3. As a site owner, I want the users to be able to search through the chocolate recipes on the site for keywords or ingredients.
         -   The search bar that is prominent on the Recipes page is designed to identify recipes based on the name or ingredients listed in the recipes.
-            <img src="static/images/screenshots/search.png" style="margin: 0;">
+            <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897085/search_apgpqu.png" style="margin: 0;">
 
         -    If a match is located the recipe(s) in question are displayed, if a match isnt found a message shows clearly.
         
-        <img src="static/images/screenshots/no-results.png" style="margin: 0;">
+        <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/no-results_qqr6wv.png" style="margin: 0;">
 
         -   The reset button removes the search results and restores the page to displaying all recipes again.
 
@@ -245,7 +253,7 @@ all pages on all devices.
 -   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues, they reported a success on all fronts.
 -   The website was tested on [Lighthouse](https://developers.google.com/web/tools/lighthouse) and achieved a high score on all issues:
 
-    <img src="static/images/screenshots/lighthouse.png" style="margin: 0;">
+    <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897082/lighthouse_rg2gow.png" style="margin: 0;">
 
     You can use the Lighthouse Tool on any webpage by right clicking on the site, then 'inspect', then the two arrow button '>>' and 'Lighthouse'. You can select to test the site 
     as a desktop version or mobile version and then click the blue 'Generate Report' which will provide you with the results in the screenshot provided above.

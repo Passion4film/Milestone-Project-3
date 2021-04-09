@@ -32,7 +32,7 @@
                     <div class="card deep-purple darken-2">
                         <div class="card-image waves-effect waves-block waves-light">
                             <!-- recipe image -->
-                            <img class="activator recipe_img" src="{{ recipe.recipe_img }}">
+                            <img class="activator recipe_img" src="{{ recipe.recipe_img }}" alt="{{ recipe.recipe_name }} image">
                         </div>
                         <div class="card-content">
                             <span class="card-title activator white-text text-shadow">
@@ -82,19 +82,23 @@
                             <br>
                             <!-- recipe ingredients/measurements -->
                             <i class="fas fa-balance-scale"></i> <strong>Ingredients and Measurements</strong>
+                            <ul>
                                 {% for ingredient in recipe.ingredients_measurements %}
                                     <li>
-                                        {{ ingredient }}
+                                        - {{ ingredient }}
                                     </li>
                                 {% endfor %}
+                            </ul>
                             <br>
                             <!-- recipe preparation steps -->
                             <i class="fas fa-clipboard-list"></i> <strong>Preparation Steps</strong>
+                            <ul>
                                 {% for steps in recipe.preparation_steps %}
                                     <li>
-                                        {{ steps }}
+                                        <span>{{ loop.index }}.</span> {{ steps }}
                                     </li>
                                 {% endfor %}
+                            </ul>
                             <br>
                             <!-- recipe time needed -->
                             <i class="fas fa-stopwatch"></i> <strong>Time</strong>

@@ -98,9 +98,22 @@ Check out more about why to use MongoDB [here](https://www.mongodb.com/why-use-m
 
 ### The BitterSweet© MongoDB collection design:
 
-<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/mongodb-schema_qd42oe.pngg" style="margin: 0;">
+<img src="static/images/mongodb-schema.png" style="margin: 0;">
 
-The Categories list contains 
+The Categories list contains just the object id and category_name
+
+The Users list contains an Object id, the username, password (that has been securely hashed) & the profile_img which is the string of the url - it gets drawn back to the site via Python and displays as an image on the profile page.
+
+The Recipes list contains:
+- Object id
+- category_name - which has to match an option from the categories list
+- recipe_name - a string created by the user
+- ingredients_measurements - which is an array with the ingredients nested inside, therefore they are displayed to the site individually with bulletpoints.
+- preparation_steps - the same as above - an array with the steps nested inside and they also show individually with bullet points.
+- time - the bake time and temp stored as a string
+- is_vegan - this is a check-box and the default is "off" - the user can change to "on" by sliding the check-box to indicate the recipe is suitable for Vegans.
+- recipe_img - is the string of the url the user submitted for the recipe image.
+- created_by - this is the username from the Users list. I am aware that the Object id of the user would be more secure, but I wasn't able to make this amendment in time. As the user doesnt have the ability to change their username there is no risk of it being changed and therefore not matching this section and causing the user to be unable to edit their own recipes anymore.
 
 ## Features
 
@@ -117,8 +130,9 @@ purpose of the site - as a chocolate recipe sharing site.
 
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897082/home_xvl8t9.png" style="margin: 0;">
 
--   Users are able to 'Register' or 'Log In' when first entering the site, these pages are clear, self-explanatory and easy to navigate. The users are limited to what pages they can see and
-have no ability to share or edit their own recipes without registering and logging in.
+-   Users are able to 'Register' or 'Log In' when first entering the site, these pages are clear, self-explanatory and easy to navigate. The users are limited to what pages they can see and have no ability to share or edit their own recipes without registering and logging in. 
+-   For the Register page - there is code to check that the username doesnt already exist and there are rules for an acceptable password (5-15 characters A-Za-z0-9) alphanumperic only. The password, if conforming with the requirements, is hashed using werkzeug.security - a feature of Flask - so it is stored securely in the database and cannot be viewed by anyone.
+-   For the Log In page - there is code to check that the username and password (with a check password hash from Flask) matches the database and then the log in is successful. If the username and/or password doesn't match a generic message is displayed. This is for security so the user isn't told which entry failed so if they are not genuine they cannot try to hack the system.
 
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/register_dpyqlf.png" style="margin: 0;">
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897082/login_ocvojr.png" style="margin: 0;">
@@ -172,11 +186,19 @@ I reviewed the documentation on [Flask](https://flask.palletsprojects.com/en/1.1
 
 ### Languages Used
 
--   In this project I used [HTML5](https://en.wikipedia.org/wiki/HTML5), [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), [JQuery](https://jquery.com/) 
-and [Python](https://en.wikipedia.org/wiki/Python_(programming_language)). 
+In this project I used:
+-   [HTML5](https://en.wikipedia.org/wiki/HTML5)
+-   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+-   [JQuery](https://jquery.com/) 
+-   [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+-   [Jinja](https://pypi.org/project/Jinja2/) 
 
 ### Frameworks, Libraries & Programs Used
 
+-   [Flask](https://flask.palletsprojects.com/en/1.1.x/) Flask is the framework used in developing the site.
+-   [MongoDB](https://www.mongodb.com/cloud/atlas) MongoDB is the database where all the data for the site is stored and organised.
+-   [PyMongo](https://docs.mongodb.com/drivers/pymongo/) PyMongo is the tool used to communicate between Python and MongoDB.
+-   [Heroku](https://www.heroku.com/home) Heroku is where the site is deployed.
 -   [Google Fonts:](https://fonts.google.com/) Google fonts were used to import the 'Satisfy' font into the style.css file which is used on all pages throughout the project.
 -   [Font Awesome:](https://fontawesome.com/) Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
 -   [GitHub:](https://github.com/) GitHub is used to store the projects code after being pushed from Git.
@@ -197,13 +219,15 @@ and [Python](https://en.wikipedia.org/wiki/Python_(programming_language)).
 
 ### Validators
 
-The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
+I used the following services to validate every page of the project to ensure there were no syntax errors:
+
+-   [W3C Markup Validator](https://validator.w3.org/) Using this validator understandably shows some errors due to the jinja code, however it's important to check all pages for non jinja errors also.
+-   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+-   [JSHint](https://jshint.com/)
 
 <img style="border:0;width:88px;height:31px"
         src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
         alt="Valid CSS!" />
-
-JSHint was used to check there were no errors in the JavaScript code
 
 ### Testing User Stories from User Experience (UX) Section
 
@@ -249,7 +273,7 @@ JSHint was used to check there were no errors in the JavaScript code
 -   The website was tested on Responsinator to ensure responsiveness on all devices.
 -   A large amount of testing was done to ensure that all pages were linking correctly. This was done by frequently moving from one page by clicking the button links for 
 all pages on all devices.
--   A large amount of testing of the dtatbase C.R.U.D functions was completed during development. After every change the site was tested to ensure no new issues or bugs were located.
+-   A large amount of testing of the database C.R.U.D functions was completed during development. After every change the site was tested to ensure no new issues or bugs were located.
 -   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues, they reported a success on all fronts.
 -   The website was tested on [Lighthouse](https://developers.google.com/web/tools/lighthouse) and achieved a high score on all issues:
 
@@ -357,8 +381,7 @@ The images used are stored in the static/images folder for easy maintainability,
 There is clear code commenting for each section of the HTML pages, which make it easy for developers to view for future maintenence. It makes changing the code/updating the 
 details easier for other developers.
 
-There is also clear code commenting in the CSS, Python & JQuery sections. Each section is clearly labled to ensure if any bugs or errors do occur it will be simple to see what part 
-of the page each section affects. This makes updating and changing the code easier for other developers.
+There is also clear code commenting in the CSS, Python & JQuery sections. Each section is clearly labled to ensure if any bugs or errors do occur it will be simple to see what part of the page each section affects. This makes updating and changing the code easier for other developers.
 
 ## Credits
 
@@ -368,10 +391,13 @@ Online tutorials:
 
 * jQuery for adding/removing ingredients and preparation steps code inspired by youtube video [made by Knowledge Thrusters](https://www.youtube.com/watch?v=7LpZYOyVDK0)
 
+Recipes:
+
+* The recipes added by myself were from my family collection, or taken from [BBC Food](https://www.bbc.co.uk/food).
 
 ### Media
 
-I created the logo, flavicon and mock-designs for chocolate bars for the site using Adobe Photoshop.
+I created the logo, flavicon, 404 error and mock-designs for chocolate bars for the site using Adobe Photoshop.
 
 The images used to create the photoshopped designs were obtained from Google/images. 
 
@@ -391,6 +417,8 @@ The users are able to upload a url of their recipe - I have directed them to a l
 [Pixabay](https://pixabay.com/), or they can upload their own at [IMGBB](https://imgbb.com/)
 
 All images used in the web design and not uploaded by users are stored in the static folder under images (in their own named folders) and labled clearly.
+
+[Materialise framework library](https://materializecss.com/getting-started.html).
 
 ## Acknowledgements
 

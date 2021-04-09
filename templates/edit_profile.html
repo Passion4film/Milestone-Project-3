@@ -5,36 +5,34 @@
 
     <!-- edit profile image form -->
     <div class="row card-panel brown darken-1 white-text">
-        <form class="col s12" method="POST" action="{{ url_for('edit_profile', username=username) }}">
+        <form class="col s12" method="POST" action="{{ url_for('edit_profile', username=username) }}" enctype="multipart/form-data">
             <!-- image url -->
             <div class="row">
-                <form method="POST" action="/edit_profile" enctype="multipart/form-data">
-                    <i class="far fa-image prefix deep-purple-text text-darken-3 text-shadow"></i>
-                    <label for="profile_img">
-                        New profile image URL
-                    </label>
-                    <input type="url" id="profile_img" name="profile_img" pattern="https://.*" 
-                        size="30" placeholder="https://" class="white-text" required>
-                    <p class="image-input">
-                        You can right-click on your profile picture on social media and 'Copy Image Address' Then paste it here.  
-                        If you want to upload an image from your computer we recommend using a free hosting site - such as 
-                        <a href="https://imgbb.com/" target="_blank">IMBB.com.</a> When the image is uploaded, right click on it & 'Copy Image Address'
-                        and then paste here.
-                    </p>
-                    <!-- submit button -->
-                    <div class="row">
-                        <div class="col s12 center-align">
-                            <!-- cancel changes button -->
-                            <a href="{{ url_for('get_recipes') }}" class="btn-small deep-purple lighten-2 text-shadow">
-                                Cancel <i class="fas fa-times-circle right"></i>
-                            </a>
-                            <!-- confirm add button -->
-                            <button type="submit" class="btn-small deep-purple darken-3 text-shadow">
-                                Add Image <i class="fas fa-plus-square right"></i>
-                            </button>
-                        </div>
+                <i class="far fa-image prefix deep-purple-text text-darken-3 text-shadow"></i>
+                <label for="profile_img">
+                    New profile image URL
+                </label>
+                <input type="url" id="profile_img" name="profile_img" pattern="https://.*" 
+                    size="30" placeholder="https://" class="white-text" required>
+                <p class="image-input">
+                    You can right-click on your profile picture on social media and 'Copy Image Address' Then paste it here.  
+                    If you want to upload an image from your computer we recommend using a free hosting site - such as 
+                    <a href="https://imgbb.com/" target="_blank">IMBB.com.</a> When the image is uploaded, right click on it & 'Copy Image Address'
+                    and then paste here.
+                </p>
+                <!-- submit button -->
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <!-- cancel changes button -->
+                        <a href="{{ url_for('get_recipes') }}" class="btn-small deep-purple lighten-2 text-shadow">
+                            Cancel <i class="fas fa-times-circle right"></i>
+                        </a>
+                        <!-- confirm add button -->
+                        <button type="submit" class="btn-small deep-purple darken-3 text-shadow">
+                            Add Image <i class="fas fa-plus-square right"></i>
+                        </button>
                     </div>
-                </form>
+                </div>
             </div>
         </form>
     </div>

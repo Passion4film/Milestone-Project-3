@@ -248,11 +248,29 @@ def delete_category(category_id):
     return redirect(url_for("get_categories"))
 
 
-# 404 Error page -------------------------------------------------------
+# Error pages -------------------------------------------------------
 @app.errorhandler(404)
 def page_not_found(e):
     # if page not found - redirects to 404 error page
     return render_template('404.html'), 404
+
+
+@app.errorhandler(403)
+def page_forbidden(e):
+    # if page forbidden - redirects to 403 error page
+    return render_template('403.html'), 403
+
+
+@app.errorhandler(410)
+def page_gone(e):
+    # if page has been deleted - redirects to 410 error page
+    return render_template('410.html'), 410
+
+
+@app.errorhandler(500)
+def server_error(e):
+    # if there has been an internal server error - redirects to 500 error page
+    return render_template('500.html'), 500
 
 
 if __name__ == "__main__":

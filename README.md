@@ -147,7 +147,7 @@ is loaded on the screen with a welcome message. They also have the ability to ed
 The recipes consist of Materialise 'Card Reveal' containers - that feature an image of the dish in question, which can be clicked on to reveal the recipe instructions.
 
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897082/card-reveal1_oxcx4j.png" style="margin: 0;">
-<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897081/card-reveal2_hoegbo.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1617975624/card-reveal2_jd3gl4.png" style="margin: 0;">
 
 -   If you are the user who created the recipe, you are then given the options to edit the recipe - which takes you to this page:
 
@@ -176,9 +176,16 @@ to improve this in the future I would like to get either Cloudinary or AWS S3 to
 
 ## Error Handling
 
-I created a custom 404 error page so that if the user encounters a page that doesn't exist, the stlye of the error page matches the rest of the site. This makes the site more professional.
+I created custom error pages so that if the user encounters a page that doesn't exist/deleted/forbidden etc, the stlye of the error page will match the rest of the site. This makes the site more professional.
+
+- 404 Not Found
+- 403 Forbidden
+- 410 Gone
+- 500 Internal Server Error
 
 I reviewed the documentation on [Flask](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/) in order to achieve this.
+
+404 error page example
 
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897082/404-page_rki2vg.png" style="margin: 0;">
 

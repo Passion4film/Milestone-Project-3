@@ -2,6 +2,32 @@
 
 [View the live website here.](https://bitter-sweet-milestone-3.herokuapp.com/)
 
+## Table of contents
+
+- [Overview](#BitterSweet)
+- [Things to consider](#Things-to-consider)
+- [UX](#UX)  
+    - [User Stories](#User-stories)
+    - [Design](#Design)
+    - [Wireframes](#Wireframes-page-designs)
+    - [MongoDB](#MongoDB-data-schema-design)
+- [Features](#Features)
+- [Future Features](#Future-Features)
+- [Error Handling](#Error-Handling)
+- [Technologies Used](#Technologies-Used)
+    - [Languages](#Languages-Used)
+    - [Frameworks](#Frameworks,Libraries-&-Programs-Used)
+- [Testing](#Testing)
+    - [Testing User Stories](#Testing-User-Stories)
+    - [Further Testing](#Further-Testing)
+    - [Bugs](#Known-Bugs)
+- [Deployment](#Deployment)
+- [Future Maintainability](#Future-maintainability)
+- [Credits](#Credits)
+    - [Content](#Content)
+    - [Media](#Media)
+- [Acknowledgements](#Acknowledgements)
+
 # BitterSweet
 
 This website is a chocolate themed recipe sharing site. Anybody can create an account and share their chocolate inspired recipes. 
@@ -9,13 +35,15 @@ This website is a chocolate themed recipe sharing site. Anybody can create an ac
 Any user can view all recipes on the site, however only a registered user can add/edit/delete their own recipes. To compliment these chocolate recipes
 BitterSweet©, which is a new chocolate company, would like to promote their products to be used to create these chocolate dishes. 
 
-## The important things to consider were:
+## Things to consider
 
 1. Working with MongoDB as the non-relational database to store the recipes and user information.
 2. Using Flask as a framework.
 3. The C.R.U.D functionality - the users must be able to Create, Read, Update and Delete their own recipes - but not anyone else's for security.
 4. A search function to locate recipes by name or ingredients.
 5. The date displayed must be user friendly and visually appealing.
+
+# UX
 
 ## User stories
 
@@ -48,7 +76,7 @@ BitterSweet©, which is a new chocolate company, would like to promote their pro
         -   I created a favicon icon for the browser tab - a smaller version of the logo image with the initials 'B & S' 
         <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897186/bs-favicon-small_xtrf2b.png" style="margin: 0;">
 
-## Wireframes page designs:
+## Wireframes page designs
 
 Home page:
 
@@ -172,7 +200,9 @@ log back in to add, edit or delete any recipes.
 but was unable to get the code to work in time. After seeing advice on Slack that for this project a url image upload is just as acceptable I went down this route instead. But if I was 
 to improve this in the future I would like to get either Cloudinary or AWS S3 to work.
 
--   I would also like in the future to enable the users to 'like' their favourite recipes, which could be saved to their profile page so they have easy access to the recipes they like.
+-   I would like in the future to enable the users to 'like' their favourite recipes, which could be saved to their profile page so they have easy access to the recipes they like.
+
+-   I would like to set-up a system where the user can re-set their password should they forget it - an email could be sent with a link to take them to a page to re-set their password. The registration would require an email input and their email stored in the database for this to work.
 
 ## Error Handling
 
@@ -228,7 +258,7 @@ In this project I used:
 
 I used the following services to validate every page of the project to ensure there were no syntax errors:
 
--   [W3C Markup Validator](https://validator.w3.org/) Using this validator understandably shows some errors due to the jinja code, however it's important to check all pages for non jinja errors also.
+-   [W3C Markup Validator](https://validator.w3.org/) Using this validator shows some errors on every page due to the jinja code, however it's important to check all pages for non jinja errors also. There is no way I have found to get the validator to accept the jinja coding.
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 -   [JSHint](https://jshint.com/)
 
@@ -236,7 +266,7 @@ I used the following services to validate every page of the project to ensure th
         src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
         alt="Valid CSS!" />
 
-### Testing User Stories from User Experience (UX) Section
+### Testing User Stories
 
 - #### Site user goals
     1. As a site user, I want to be able to register for the site and navigate it easily, then to be able to log in and out when I wish.

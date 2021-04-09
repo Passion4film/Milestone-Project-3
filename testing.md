@@ -5,22 +5,29 @@
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897083/check-flask1_txh6hd.png" style="margin: 0;">
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897083/check-flask2_dv5fp4.png" style="margin: 0;">
 
+
 * Checking flask is connected to MongoDB
+
 
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897083/mongodb-connection1_p5kzpz.png" style="margin: 0;">
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897083/mongodb-connection2_rvs14z.png" style="margin: 0;">
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/mongodb-connection3_jubupr.png" style="margin: 0;">
 
+
 * Testing base template works:
+
 
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897085/testing-base-template1_axkhe6.png" style="margin: 0;">
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897085/testing-base-template2_vyudow.png" style="margin: 0;">
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897085/testing-base-template3_nrbcsh.png" style="margin: 0;">
 
+
 * Create delete modal so the user has to verify they want to delete a recipe:
+
 
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897083/delete-modal1_aqoejc.png" style="margin: 0;">
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897083/delete-modal2_iorhve.png" style="margin: 0;">
+
 
 An issue encountered when setting up the delete a recipe function was that a recipe could be deleted with one click of the button, which means there was a risk that it could 
 be done accidentely or the user could change their mind but have no warning.
@@ -37,91 +44,90 @@ So, when you click on the card to see the recipe details, then you can see the b
 
 # Bugs and issues that needed to be overcome:
 
-## Matching the cards
+## Register & Login
 
 * Expected
 
-    - The game is expected to know when 2 cards match each other and to keep them turned face-up, if they do not match they are to be flipped back over for the user to try again. Used frameworks to name each card image and created code that checked the framework names to know if the cards matched or not.
+    - When a user tries to register their username will be checked to see if it is unique - if so their password will need to fit the requirements. To Log In to the site, a check will be made to see if the username and password matches what is stored in the database for that user.
 
 * Testing
 
-    - Tested the site by running the matchcard funtion multiple times and running a check in the console.log to ensure it was registering whether 2 cards matched or not. 
+    -  Creating multiple users, asking friends/family to register - logging in and out multiple times and checking the database to see that the required details were captured there correctly.
 
 * Result
 
-    - Cards that match remain face-up and cards that dont match are 'unflipped' so their image is hidden again and then the user can try again.
+    - A new user can easily register an account, their username is checked and their password is hashed for security. An existing user can easily log in and their username/password is checked and only allowed to log in if both match - should one not match the user isn't told which one failed to increase security so it is harder to force their way onto the system not knowing which field is incorrect.
 
-## Game timer function
+## Jinja templating for ingredients & preparation steps
 
 * Expected
 
-    - The game timer function triggering with the first click of the first card of the game only, and not every time a card was clicked.
+    - 
 
 * Testing
 
-    - Tested the site by playing the game and watching the time to see what happened.
+    - 
 
 * Result
 
-    - The time function was triggering with each first click on a card.
+    - 
 
 * Fix
 
-    - Overcame with 'var firstClick = false' in app.js, which solved the problem and now the timer function only activates on the first card click at the beginning of the game.
+    - 
 
-## Disable cards
-
-* Expected
-
-    - Once two cards had been over-turned and no match found, they needed to be 'unflipped' again so the user couldnt keep 'flipping' the cards before the match function could be executed.
-
-* Testing
-
-    - Tested the site by quickly clicking on multiple cards when the game started and triggering them to be 'flipped'.
-
-* Result
-
-    - Without time to execute the match function the cards remained flipped over and therefore broke the game.
-
-* Fix
-
-    - A disableCards funtion was needed, which locked the board until the match function had resolved. Also needed to create a 'disableAllCards' funtion for when the game is won or lost so the user cant keep playing so they need to select to play again or a new level.
-
-## Level 2 problems
+## Adding dynamic plus/remove buttons for ingredients/preparation steps
 
 * Expected
 
-    - Once the code was in place for the first level, I aimed to incororate the same code for a second, harder, level. The code was expected to work the same way.
+    - 
 
 * Testing
 
-    - Tested the site when the level 2.html was created and the new game grid/images uploaded.
+    - 
 
 * Result
 
-    - The code didnt work and no cards were flipped and the time and score didnt update. Also as there were 8 pairs of cards instead of 6 the critera for winning the game was wrong.
+    - 
 
 * Fix
 
-    - The 'const cards' variable wasnt triggering for the level 2 cards, to overcome this a 'cards2' was created and another event listener. 
-        A level1 & level2 ID was given to each game grid and these targeted using 'getAttribute('id')' and 'levelOneMatches' and 'levelTwoMatches' variables created.
+    - 
 
-## IOS Mobile devices
+## Uploading images for recipes
 
 * Expected
 
-    - The site is expected to work on a mobile device exactly the same way as a desktop.
+    - 
 
 * Testing
 
-    - Tested the site using Chome Dev Tools for responsivness and sent the deployed link to several mobile devices, some android and some iPhones of differing types.
+    - 
 
 * Result
 
-    - The CSS wasnt loading correctly for the game on IOS software, the cards wouldnt 'flip' correctly.
+    - 
 
 * Fix
 
-    - Solved this by running the appropriate CSS through 'Autoprefixer' (as linked to in README) and adding the webkit options to the code for IOS software.
+    - 
+
+## Editing profile picture url
+
+* Expected
+
+    - 
+
+* Testing
+
+    - 
+
+* Result
+
+    - 
+
+* Fix
+
+    - 
 
 [Return to README](README.md)

@@ -48,27 +48,27 @@ $(document).ready(function() {
 function addIngredient(){
     $('#first_ingredient .new_ingredient').clone().find('input').val('').end()
         .appendTo('#moreIngredients');
-};
+}
 
 function editIngredient(){
     $('#first_ingredient .hidden').clone().removeClass('hidden').find('input').val('').end()
         .appendTo('#moreIngredients');
-};
+}
 
 function removeIngredient(){
     $('#moreIngredients .new_ingredient').last().remove();
-};
+}
 
 function addStep(){
     $('#extraSteps .new_step').clone().find('input').val('').end()
         .appendTo('#moreSteps');
-};
+}
 
 function editStep(){
     $('#extraSteps .hidden').clone().removeClass('hidden').find('input').val('').end()
         .appendTo('#moreSteps');
-};
+}
 
 function removeStep(){
     $('#moreSteps .new_step').last().remove();
-};
+}

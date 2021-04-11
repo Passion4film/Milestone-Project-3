@@ -2,9 +2,9 @@
 
 [View the live website here.](https://bitter-sweet-milestone-3.herokuapp.com/)
 
-## Table of contents
+## Table of Contents
 
-- [Overview](#BitterSweet)
+- [Overview](#BitterSweet-Overview)
 - [Things to consider](#Things-to-consider)
 - [UX](#UX)  
     - [User Stories](#User-stories)
@@ -28,7 +28,7 @@
     - [Media](#Media)
 - [Acknowledgements](#Acknowledgements)
 
-# BitterSweet
+# BitterSweet Overview
 
 This website is a chocolate themed recipe sharing site. Anybody can create an account and share their chocolate inspired recipes. 
 
@@ -41,7 +41,7 @@ BitterSweet©, which is a new chocolate company, would like to promote their pro
 2. Using Flask as a framework.
 3. The C.R.U.D functionality - the users must be able to Create, Read, Update and Delete their own recipes - but not anyone else's for security.
 4. A search function to locate recipes by name or ingredients.
-5. The date displayed must be user friendly and visually appealing.
+5. The data displayed must be user friendly and visually appealing.
 
 # UX
 
@@ -54,7 +54,7 @@ BitterSweet©, which is a new chocolate company, would like to promote their pro
 
 - #### Site owner goals
     1. As a site owner, I want to promote the company BitterSweet© and to suggest the users try these new chocolate products in the recipes.
-    2. As a site owner, I want the users to be able to create an acocunt and navigate the site easily, as well as create/edit/delete their recipes as much as they choose to.
+    2. As a site owner, I want the users to be able to create an account and navigate the site easily, as well as create/edit/delete their recipes as much as they choose to.
     3. As a site owner, I want the users to be able to search through the chocolate recipes on the site for keywords or ingredients.
 
 -   ### Design
@@ -62,14 +62,11 @@ BitterSweet©, which is a new chocolate company, would like to promote their pro
         -   The main colours used are shades of brown, purple and white, as these complement each other nicely and are suggestive of the classic colours of Cadbury's, however 
         as this is a site for the purpose of learning no copyright infringement is intended. 
     -   #### Typography
-        -   The Satisfy font is used for the navbar and page titles, as it resembles the font used in the logo. Baloo Tammudu 2 is also used for the paragraphs with information, 
-        as this makes them easier to read. Sans Serif is the fallback font in case for any reason the font isn't being imported into the site correctly. These fonts are attractive 
-        and appropriate to the aesthetic of the site. The font colour throughout is dependent on the background and the tupe of content to make it stand-out and for ease of reading 
-        against the background.
+        -   The Satisfy font is used for the navbar and page titles, as it resembles the font used in the logo. Baloo Tammudu 2 is also used for the paragraphs with information, as this makes them easier to read. Sans Serif is the fallback font in case for any reason the font isn't being imported into the site correctly. These fonts are attractive and appropriate to the aesthetic of the site. The font colour throughout is dependent on the background and the type of content to make it stand-out and for ease of reading against the background.
     -   #### Imagery
         -   I created the site logo using Adobe Photoshop and a stock photo located online that I edited to suit my purpose. 
         -   I created the vegan chocolate wrapper design and the other chocolate wrapper design on the index page using Adobe Photoshop and stock photos located online. 
-        This site is for educational purposes only and no copyright infringement is intended - just an example of product placement for my created chocolate company.
+        This site is for educational purposes only and no copyright infringement is intended - just an example of product placement for my fictional chocolate company.
         -   The imagery used for the recipes is dependent on the content uploaded by the user. I was unable to create a system where the user uploads their own photo 
         directly to the site, however, they can upload to a free hosting platform that I have linked to in my new recipe form, they just need to paste the image url to the 
         site and it will display with the recipe details.
@@ -78,31 +75,31 @@ BitterSweet©, which is a new chocolate company, would like to promote their pro
 
 ## Wireframes page designs
 
-Home page:
+**Home page:**
 
 <img src="static/images/wireframes/home_page.png" style="margin: 0;">
 
-Register Page:
+**Register Page:**
 
 <img src="static/images/wireframes/register.png" style="margin: 0;">
 
-Log In Page:
+**Log In Page:**
 
 <img src="static/images/wireframes/login.png" style="margin: 0;">
 
-Profile Page:
+**Profile Page:**
 
 <img src="static/images/wireframes/profile.png" style="margin: 0;">
 
-All Recipes Page:
+**All Recipes Page:**
 
 <img src="static/images/wireframes/all_recipes.png" style="margin: 0;">
 
-Add / Edit Recipes Page:
+**Add / Edit Recipes Page:**
 
 <img src="static/images/wireframes/add_edit_recipes.png" style="margin: 0;">
 
-Categories Page - only for the Admin:
+**Categories Page - only for the Admin:**
 
 <img src="static/images/wireframes/categories-for_admin.png" style="margin: 0;">
 
@@ -136,8 +133,8 @@ The Recipes list contains:
 - Object id
 - category_name - which has to match an option from the categories list
 - recipe_name - a string created by the user
-- ingredients_measurements - which is an array with the ingredients nested inside, therefore they are displayed to the site individually with bulletpoints.
-- preparation_steps - the same as above - an array with the steps nested inside and they also show individually with bullet points.
+- ingredients_measurements - which is an array with the ingredients nested inside, therefore they are displayed to the site on individual lines for easier viewing.
+- preparation_steps - the same as above - an array with the steps nested inside and they also show individually - but I have the jinja index loop with them so they display as a numbered list of steps needed to create the recipe.
 - time - the bake time and temp stored as a string
 - is_vegan - this is a check-box and the default is "off" - the user can change to "on" by sliding the check-box to indicate the recipe is suitable for Vegans.
 - recipe_img - is the string of the url the user submitted for the recipe image.
@@ -153,11 +150,13 @@ The Recipes list contains:
 
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897085/responsive3_n1evys.png" style="margin: 0;">
 
+### Home Page
 -    The first page the users come to is a home page - which explains the site and gives the site owners their opportunity to promote their chocolate products, while tying in with the
 purpose of the site - as a chocolate recipe sharing site.
 
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897082/home_xvl8t9.png" style="margin: 0;">
 
+### Register & Log In Pages
 -   Users are able to 'Register' or 'Log In' when first entering the site, these pages are clear, self-explanatory and easy to navigate. The users are limited to what pages they can see and have no ability to share or edit their own recipes without registering and logging in. 
 -   For the Register page - there is code to check that the username doesnt already exist and there are rules for an acceptable password (5-15 characters A-Za-z0-9) alphanumperic only. The password, if conforming with the requirements, is hashed using werkzeug.security - a feature of Flask - so it is stored securely in the database and cannot be viewed by anyone.
 -   For the Log In page - there is code to check that the username and password (with a check password hash from Flask) matches the database and then the log in is successful. If the username and/or password doesn't match a generic message is displayed. This is for security so the user isn't told which entry failed so if they are not genuine they cannot try to hack the system.
@@ -165,13 +164,14 @@ purpose of the site - as a chocolate recipe sharing site.
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/register_dpyqlf.png" style="margin: 0;">
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897082/login_ocvojr.png" style="margin: 0;">
 
--   As soon as the user successfully registers or logs in, they are re-directed to their own personalised 'Profile' page - where the image url they uploaded as part of their registration
-is loaded on the screen with a welcome message. They also have the ability to edit their profile picture to any url they choose.
+### Profile Page
+-   As soon as the user successfully registers or logs in, they are re-directed to their own personalised 'Profile' page - where the image url they uploaded as part of their registration is loaded on the screen with a welcome message. They also have the ability to edit their profile picture to any url they choose.
 
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/profile_gclwde.png" style="margin: 0;">
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/edit-profile_prxaot.png" style="margin: 0;">
 
--  The 'Recipe' page contains all recipes added by users of the site. All recipes are visable, whether a user is registered/logged in or not.
+### Recipes Page
+-  The 'Recipes' page contains all recipes added by users of the site. All recipes are visable, whether a user is registered/logged in or not.
 The recipes consist of Materialise 'Card Reveal' containers - that feature an image of the dish in question, which can be clicked on to reveal the recipe instructions.
 
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897082/card-reveal1_oxcx4j.png" style="margin: 0;">
@@ -185,20 +185,18 @@ The recipes consist of Materialise 'Card Reveal' containers - that feature an im
 
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897083/delete_kiavf2.png" style="margin: 0;">
 
--   The 'New Recipe' Page allows a registered/logged in user to add a recipe to the site. The form they have to fill in is clear and easy to follow. A url for the image must be included
-The instructions for this is made clear on the page.
+### New Recipe Page
+-   The 'New Recipe' Page allows a registered/logged in user to add a recipe to the site. The form they have to fill in is clear and easy to follow. A url for the image must be included The instructions for this is made clear on the page.
 
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897081/add-recipe_bfbfht.png" style="margin: 0;">
 
--   The 'Log Out' option is available as soon as a user logs in - by clicking on this the user's cookies are removed from the site and they are re-directed to the log in page, and must 
-log back in to add, edit or delete any recipes.
+### Log Out
+-   The 'Log Out' option is available as soon as a user logs in - by clicking on this the user's session cookies are removed from the site and they are re-directed to the log in page, and must log back in to add, edit or delete any recipes.
 
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897082/logout_yodkkm.png" style="margin: 0;">
 
 ### Future Features
--   I wanted the user to be able to upload any files from their own computer/mobile to the site for the recipe image or profile picture. I tried to do this using Cloudinary and AWS S3 - 
-but was unable to get the code to work in time. After seeing advice on Slack that for this project a url image upload is just as acceptable I went down this route instead. But if I was 
-to improve this in the future I would like to get either Cloudinary or AWS S3 to work.
+-   I wanted the user to be able to upload any files from their own computer/mobile to the site for the recipe image or profile picture. I tried to do this using Cloudinary and AWS S3 - but was unable to get the code to work in time. After seeing advice on Slack that for this project a url image upload is just as acceptable I went down this route instead. But if I was to improve this in the future I would like to get either Cloudinary or AWS S3 to work.
 
 -   I would like in the future to enable the users to 'like' their favourite recipes, which could be saved to their profile page so they have easy access to the recipes they like.
 
@@ -463,3 +461,5 @@ I received inspiration for this project from the Task Manager mini-project as pa
 much appreciated help from my Mentor; Antonio Rodriguez.
 
 **DISCLAIMER: This project is for educational purposes only, no materials/files are intended for any commercial use**
+
+[Contents](#Table-of-Contents)

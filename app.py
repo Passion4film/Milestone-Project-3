@@ -110,11 +110,20 @@ def profile(username):
         {"username": session["user"]})["username"].capitalize()
     profile_img = mongo.db.users.find_one(
         {"username": session["user"]})["profile_img"]
+    recipes = list(mongo.db.recipes.find())
 
     if session["user"]:
+        # Fetch user recipes
+        for recipe in recipes:
+            try:
+                recipe["created_by"] = mongo.db.users.find_one(
+                    {"_id": recipe["created_by"]})["username"]
+            except:
+                pass
         return render_template("profile.html",
                                 username=username,
                                 profile_img=profile_img,
+                                recipes=recipes,
                                 title="Profile")
 
     return redirect(url_for("login"))

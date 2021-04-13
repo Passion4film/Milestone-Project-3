@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <!-- edit profile -->
-                <a href="{{ url_for('edit_profile', username=username) }}" class="btn-large brown lighten-3">
+                <a href="{{ url_for('edit_profile', username=username) }}" class="btn-small brown lighten-3">
                     Edit Profile Picture <i class="fas fa-edit right"></i>
                 </a>
             </div>
@@ -25,102 +25,98 @@
         <h3 class="white-text text-shadow">My Recipes</h3>
     </div>
 
-    {% if recipes|length > 0 %}
-        <div class="row">
-            {% for recipe in recipes if session.user|lower == recipe.created_by|lower %}
-                <div class="col s12 m6 l6">
-                    <div class="card brown darken-4">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <!-- recipe image -->
-                            <img class="activator recipe_img" src="{{ recipe.recipe_img }}" alt="{{ recipe.recipe_name }} image">
+    <div class="row">
+        {% for recipe in recipes if session.user|lower == recipe.created_by|lower %}
+        <div class="col s12 m6 l6">
+            <div class="card brown darken-4">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <!-- recipe image -->
+                    <img class="activator recipe_img" src="{{ recipe.recipe_img }}" alt="{{ recipe.recipe_name }} image">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator white-text text-shadow">
+                        <!-- recipe name -->
+                        <i class="fas fa-book"></i>
+                        <strong>{{ recipe.recipe_name }}</strong>
+                        {% if recipe.is_vegan == "on" %}
+                        <i class="fas fa-carrot tooltipped" data-position="right" data-tooltip="Suitable for Vegans"></i>
+                        {% endif %}
+                        <i class="fas fa-ellipsis-v right"></i>
+                    </span>
+                </div>
+                <div class="card-reveal">
+                    <!-- recipe name repeated -->
+                    <span class="card-title purple-text text-darken-4">
+                        <strong>{{ recipe.recipe_name }}</strong>
+                        <i class="far fa-window-close right"></i>
+                    </span>
+                    {% if session.user|lower == recipe.created_by|lower %}
+                    <!-- edit recipe -->
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
+                        class="btn-small brown lighten-3 text-shadow">Edit</a>
+                    <!-- delete recipe -->
+                    <button data-target="{{ recipe._id }}" class="btn-small brown darken-1 modal-trigger text-shadow">Delete
+                        Recipe</button>
+                    <!-- delete recipe modal -->
+                    <div id="{{ recipe._id }}" class="modal card-panel brown darken-1 white-text">
+                        <div class="modal-content">
+                            <h4>Are you sure you want to delete this recipe?</h4>
                         </div>
-                        <div class="card-content">
-                            <span class="card-title activator white-text text-shadow">
-                                <!-- recipe name -->
-                                <i class="fas fa-book"></i>
-                                <strong>{{ recipe.recipe_name }}</strong>
-                                {% if recipe.is_vegan == "on" %}
-                                    <i class="fas fa-carrot tooltipped" data-position="right" data-tooltip="Suitable for Vegans"></i>
-                                {% endif %}
-                                <i class="fas fa-ellipsis-v right"></i>
-                            </span>
-                        </div>
-                        <div class="card-reveal">
-                            <!-- recipe name repeated -->
-                            <span class="card-title purple-text text-darken-4">
-                                <strong>{{ recipe.recipe_name }}</strong>
-                                <i class="far fa-window-close right"></i>
-                            </span>
-                            {% if session.user|lower == recipe.created_by|lower %}
-                                <!-- edit recipe -->
-                                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small brown lighten-3 text-shadow">Edit</a>
-                                <!-- delete recipe -->
-                                <button data-target="{{ recipe._id }}" class="btn-small brown darken-1 modal-trigger text-shadow">Delete Recipe</button>
-                                <!-- delete recipe modal -->
-                                <div id="{{ recipe._id }}" class="modal card-panel brown darken-1 white-text">
-                                    <div class="modal-content">
-                                        <h4>Are you sure you want to delete this recipe?</h4>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" data-target="{{ recipe._id }}"
-                                            class="modal-close btn-small brown darken-1">
-                                            Yes - Delete
-                                        </a>
-                                        <a href="{{ url_for('get_recipes') }}"
-                                            class="modal-close btn-small blue-grey-text text-lighten-5 blue-grey darken-3">
-                                            Cancel
-                                        </a>
-                                    </div>
-                                </div>
-                            {% endif %}
-                            <hr>
-                            <!-- recipe category -->
-                            <i class="fas fa-birthday-cake"></i> <strong>Category</strong>
-                            <p>
-                                {{ recipe.category_name }}
-                            </p>
-                            <br>
-                            <!-- recipe ingredients/measurements -->
-                            <i class="fas fa-balance-scale"></i> <strong>Ingredients and Measurements</strong>
-                            <ul>
-                                {% for ingredient in recipe.ingredients_measurements %}
-                                    <li>
-                                        - {{ ingredient }}
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                            <br>
-                            <!-- recipe preparation steps -->
-                            <i class="fas fa-clipboard-list"></i> <strong>Preparation Steps</strong>
-                            <ul>
-                                {% for steps in recipe.preparation_steps %}
-                                    <li>
-                                        <span>{{ loop.index }}.</span> {{ steps }}
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                            <br>
-                            <!-- recipe time needed -->
-                            <i class="fas fa-stopwatch"></i> <strong>Time</strong>
-                            <p>
-                                {{ recipe.time}}
-                            </p>
-                            <!-- recipe added by -->
-                            <p><em>by: {{ recipe.created_by }}</em></p>
+                        <div class="modal-footer">
+                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" data-target="{{ recipe._id }}"
+                                class="modal-close btn-small brown darken-1">
+                                Yes - Delete
+                            </a>
+                            <a href="{{ url_for('get_recipes') }}"
+                                class="modal-close btn-small blue-grey-text text-lighten-5 blue-grey darken-3">
+                                Cancel
+                            </a>
                         </div>
                     </div>
+                    {% endif %}
+                    <hr>
+                    <!-- recipe category -->
+                    <i class="fas fa-birthday-cake"></i> <strong>Category</strong>
+                    <p>
+                        {{ recipe.category_name }}
+                    </p>
+                    <br>
+                    <!-- recipe ingredients/measurements -->
+                    <i class="fas fa-balance-scale"></i> <strong>Ingredients and Measurements</strong>
+                    <ul>
+                        {% for ingredient in recipe.ingredients_measurements %}
+                        <li>
+                            - {{ ingredient }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <br>
+                    <!-- recipe preparation steps -->
+                    <i class="fas fa-clipboard-list"></i> <strong>Preparation Steps</strong>
+                    <ul>
+                        {% for steps in recipe.preparation_steps %}
+                        <li>
+                            <span>{{ loop.index }}.</span> {{ steps }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <br>
+                    <!-- recipe time needed -->
+                    <i class="fas fa-stopwatch"></i> <strong>Time</strong>
+                    <p>
+                        {{ recipe.time}}
+                    </p>
+                    <!-- recipe added by -->
+                    <p><em>by: {{ recipe.created_by }}</em></p>
                 </div>
-            {% endfor %}
+            </div>
         </div>
-
-    <!-- If no recipes added -->
-    {% else %}
-        <div class="center-align">
-            <h4 class="brown-text">You have not added any recipes... yet!</h4>
-            <a href="{{ url_for('add_recipe') }}" class="btn-small deep-purple lighten-2 text-shadow">
-                Add a Recipe <i class="fas fa-plus-square right"></i>
-            </a>
-        </div>
-    {% endif %}
+        {% endfor %}
+    </div>
+    <div class="center-align">
+        <a href="{{ url_for('add_recipe') }}" class="btn-small deep-purple lighten-2 text-shadow">
+        Add a Recipe <i class="fas fa-plus-square right"></i>
+        </a>
+    </div>
     
 {% endblock %}

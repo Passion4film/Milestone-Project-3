@@ -158,7 +158,7 @@ purpose of the site - as a chocolate recipe sharing site.
 
 ### Register & Log In Pages
 -   Users are able to 'Register' or 'Log In' when first entering the site, these pages are clear, self-explanatory and easy to navigate. The users are limited to what pages they can see and have no ability to share or edit their own recipes without registering and logging in. 
--   For the Register page - there is code to check that the username doesnt already exist and there are rules for an acceptable password (5-15 characters A-Za-z0-9) alphanumperic only. The password, if conforming with the requirements, is hashed using werkzeug.security - a feature of Flask - so it is stored securely in the database and cannot be viewed by anyone.
+-   For the Register page - there is code to check that the username doesnt already exist and there are rules for an acceptable password (5-15 characters A-Za-z0-9) alphanumperic only. The password, if conforming with the requirements, is hashed using werkzeug.security - a feature of Flask - so it is stored securely in the database and cannot be viewed by anyone. The profile pict image is pre-filled with a generic default image so that if a user doesnt want to add their own image, or can't at that moment, they can still register. The info explains that they can change their profile image at any time.
 -   For the Log In page - there is code to check that the username and password (with a check password hash from Flask) matches the database and then the log in is successful. If the username and/or password doesn't match a generic message is displayed. This is for security so the user isn't told which entry failed so if they are not genuine they cannot try to hack the system.
 
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1618394291/register_ew9lrk.png" style="margin: 0;">
@@ -166,6 +166,7 @@ purpose of the site - as a chocolate recipe sharing site.
 
 ### Profile Page
 -   As soon as the user successfully registers or logs in, they are re-directed to their own personalised 'Profile' page - where the image url they uploaded as part of their registration is loaded on the screen with a welcome message. They also have the ability to edit their profile picture to any url they choose.
+-   Underneath the profile image is a section entitled 'My Recipes' which contains the recipe cards that the user has added to the site - this is so they are easily accessible to them for them to review, edit or delete at any time.
 
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1618393888/profile_xd959h.png" style="margin: 0;">
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/edit-profile_prxaot.png" style="margin: 0;">
@@ -198,9 +199,9 @@ The recipes consist of Materialise 'Card Reveal' containers - that feature an im
 ### Future Features
 -   I wanted the user to be able to upload any files from their own computer/mobile to the site for the recipe image or profile picture. I tried to do this using Cloudinary and AWS S3 - but was unable to get the code to work in time. After seeing advice on Slack that for this project a url image upload is just as acceptable I went down this route instead. But if I was to improve this in the future I would like to get either Cloudinary or AWS S3 to work.
 
--   I would like in the future to enable the users to 'like' their favourite recipes, which could be saved to their profile page so they have easy access to the recipes they like.
-
 -   I would like to set-up a system where the user can re-set their password should they forget it - an email could be sent with a link to take them to a page to re-set their password. The registration would require an email input and their email stored in the database for this to work.
+
+-   I am aware that allowing users to upload images and content to a site brings risk in that the web developer has limited control about what the user can post. In the future, especially with high user traffic - controls would need to be placed so that users cannot upload inappropriate content to the site.
 
 ## Error Handling
 
@@ -256,13 +257,16 @@ In this project I used:
 
 I used the following services to validate every page of the project to ensure there were no syntax errors:
 
--   [W3C Markup Validator](https://validator.w3.org/) Using this validator shows some errors on every page due to the jinja code, however it's important to check all pages for non jinja errors also. There is no way I have found to get the validator to accept the jinja coding.
+-   [W3C Markup Validator](https://validator.w3.org/) This validator doesnt like the Jinja templating - but if you run the code from the page source you can check for any non-jinja errors.
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 -   [JSHint](https://jshint.com/)
+-   [PEP8 Online Check](http://pep8online.com/)
 
 <img style="border:0;width:88px;height:31px"
         src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
         alt="Valid CSS!" />
+
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1618405087/pep8check_wos0t1.png" style="margin: 0;">
 
 ### Testing User Stories
 
@@ -325,15 +329,15 @@ No bugs have been located at the time of Deployment.
 
 ### GitHub Pages
 
-To deploy to GitHub Pages you can using the following steps...
+The repository for this project is stored on [GitHub](https://github.com/) and is deployed on [Heroku](https://www.heroku.com/).
 
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/Passion4film/Milestone-Project-3/)
-2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
-    - Alternatively Click [Here](https://raw.githubusercontent.com/) for a GIF demonstrating the process starting from Step 2.
-3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
-4. Under "Source", click the dropdown called "None" and select "Master Branch".
-5. The page will automatically refresh.
-6. Scroll back down through the page to locate the now published site [link](https://github.com/Passion4film/Milestone-Project-2) in the "GitHub Pages" section.
+In order to add to this project you will need:
+
+- Python 3.8.3 or higher
+- Git version control
+- Code editor
+- GitHub account
+- MongoDB account
 
 ### Forking the GitHub Repository
 
@@ -369,9 +373,27 @@ $ git clone https://github.com/Passion4film/Milestone-Project-3
 
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
+8. Create a file called env.py for the environment variables, containing:
+
+```console
+import os
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "<app secret key>")
+os.environ.setdefault("MONGO_URI", "mongodb+srv://<username>:<password>@<cluster_name>-ofgqg.mongodb.net/<database_name>?retryWrites=true&w=majority")
+os.environ.setdefault("MONGO_DBNAME", "<database name>")
+
+```
+9. **Ensure that env.py is listed in your .gitignore file so that the environment variables are are never made public**
+10. The app can now be run locally using
+```console
+python3 app.py
+```
+
 ## Deployment to Heroku 
 
-This site was deployed to Heroku. if you have an account login [here](https://id.heroku.com/login)
+If you have a Heroku account login [here](https://id.heroku.com/login) or create an account.
 
 Before creating a Heroku application there are some files that need to be created to run the app:
 
@@ -400,7 +422,7 @@ Make sure not to include any "quotes" for the key, or the value.
 |IP|`0.0.0.0`|
 |PORT|`5000`|
 |SECRET_KEY|`<app secret key>`|
-|MONGO_URI|mongodb+srv://root:r00tUser26@myfirstcluster.nsq0m.mongodb.net/bitter_sweet?retryWrites=true&w=majority
+|MONGO_URI|mongodb+srv://<username>:<password>@<cluster_name>.nsq0m.mongodb.net/<database_name>?retryWrites=true&w=majority
 |MONGO_DBNAME|`bitter_sweet`|
 
 * Make sure all changes on GitHub have been added, commited and pushed to GitHub. 

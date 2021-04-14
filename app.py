@@ -30,18 +30,16 @@ def home_page():
 @app.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
-    return render_template("recipes.html",
-                            recipes=recipes,
-                            title="All Recipes")
+    return render_template(
+        "recipes.html", recipes=recipes, title="All Recipes")
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
-    return render_template("recipes.html",
-                            recipes=recipes,
-                            title="All Recipes")
+    return render_template(
+        "recipes.html", recipes=recipes, title="All Recipes")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -69,8 +67,7 @@ def register():
         flash("Registration Successful!")
         return redirect(url_for("profile", username=session["user"]))
 
-    return render_template("register.html",
-                            title="Register")
+    return render_template("register.html", title="Register")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -99,8 +96,7 @@ def login():
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
-    return render_template("login.html",
-                            title="Log In")
+    return render_template("login.html", title="Log In")
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
@@ -120,11 +116,9 @@ def profile(username):
                     {"_id": recipe["created_by"]})["username"]
             except:
                 pass
-        return render_template("profile.html",
-                                username=username,
-                                profile_img=profile_img,
-                                recipes=recipes,
-                                title="Profile")
+        return render_template(
+            "profile.html", username=username, profile_img=profile_img,
+            recipes=recipes, title="Profile")
 
     return redirect(url_for("login"))
 
@@ -140,9 +134,8 @@ def edit_profile(username):
         flash("Profile Picture Updated")
         return redirect(url_for("profile", username=original_username))
 
-    return render_template("edit_profile.html",
-                            title="Edit Profile",
-                            username=username)
+    return render_template(
+        "edit_profile.html", title="Edit Profile", username=username)
 
 
 @app.route("/logout")
@@ -173,9 +166,8 @@ def add_recipe():
         return redirect(url_for("get_recipes"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_recipe.html",
-                            categories=categories,
-                            title="Add a Recipe")
+    return render_template(
+        "add_recipe.html", categories=categories, title="Add a Recipe")
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
@@ -199,10 +191,9 @@ def edit_recipe(recipe_id):
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_recipe.html",
-                            recipe=recipe,
-                            categories=categories,
-                            title="Edit your Recipe")
+    return render_template(
+        "edit_recipe.html", recipe=recipe, categories=categories,
+        title="Edit your Recipe")
 
 
 @app.route("/delete_recipe/<recipe_id>")
@@ -215,9 +206,8 @@ def delete_recipe(recipe_id):
 @app.route("/get_categories")
 def get_categories():
     categories = list(mongo.db.categories.find().sort("category_name"))
-    return render_template("categories.html",
-                            categories=categories,
-                            title="Manage Categories")
+    return render_template(
+        "categories.html", categories=categories, title="Manage Categories")
 
 
 @app.route("/add_category", methods=["GET", "POST"])
@@ -230,8 +220,7 @@ def add_category():
         flash("New Category Added")
         return redirect(url_for("get_categories"))
 
-    return render_template("add_category.html",
-                            title="Add Category")
+    return render_template("add_category.html", title="Add Category")
 
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
@@ -245,9 +234,8 @@ def edit_category(category_id):
         return redirect(url_for("get_categories"))
 
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
-    return render_template("edit_category.html",
-                            category=category,
-                            title="Edit Category")
+    return render_template(
+        "edit_category.html", category=category, title="Edit Category")
 
 
 @app.route("/delete_category/<category_id>")

@@ -161,13 +161,13 @@ purpose of the site - as a chocolate recipe sharing site.
 -   For the Register page - there is code to check that the username doesnt already exist and there are rules for an acceptable password (5-15 characters A-Za-z0-9) alphanumperic only. The password, if conforming with the requirements, is hashed using werkzeug.security - a feature of Flask - so it is stored securely in the database and cannot be viewed by anyone.
 -   For the Log In page - there is code to check that the username and password (with a check password hash from Flask) matches the database and then the log in is successful. If the username and/or password doesn't match a generic message is displayed. This is for security so the user isn't told which entry failed so if they are not genuine they cannot try to hack the system.
 
-<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/register_dpyqlf.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1618394291/register_ew9lrk.png" style="margin: 0;">
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897082/login_ocvojr.png" style="margin: 0;">
 
 ### Profile Page
 -   As soon as the user successfully registers or logs in, they are re-directed to their own personalised 'Profile' page - where the image url they uploaded as part of their registration is loaded on the screen with a welcome message. They also have the ability to edit their profile picture to any url they choose.
 
-<img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/profile_gclwde.png" style="margin: 0;">
+<img src="https://res.cloudinary.com/passion4film/image/upload/v1618393888/profile_xd959h.png" style="margin: 0;">
 <img src="https://res.cloudinary.com/passion4film/image/upload/v1617897084/edit-profile_prxaot.png" style="margin: 0;">
 
 ### Recipes Page

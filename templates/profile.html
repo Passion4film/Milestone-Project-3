@@ -67,7 +67,7 @@
                                 class="modal-close btn-small brown darken-1">
                                 Yes - Delete
                             </a>
-                            <a href="{{ url_for('get_recipes') }}"
+                            <a href="{{ url_for('profile', username=session['user']) }}"
                                 class="modal-close btn-small blue-grey-text text-lighten-5 blue-grey darken-3">
                                 Cancel
                             </a>
